@@ -134,6 +134,38 @@ const GRADE4_ACTIVITY_MAP: Record<string, string> = {
 // ---------------------------------------------------------------------------
 
 /**
+ * Extract the inner HTML of a <div id="..."> element from raw HTML.
+ * Used to resolve htmlId references in lesson concept data.
+ */
+function extractDivById(html: string, id: string): string {
+  // Match opening tag with the given id attribute
+  const openTagRegex = new RegExp(`<div[^>]+id=["']${id}["'][^>]*>`, "i");
+  const match = openTagRegex.exec(html);
+  if (!match) return "";
+
+  const start = match.index + match[0].length;
+  let depth = 1;
+  let i = start;
+  while (i < html.length && depth > 0) {
+    if (html[i] === "<") {
+      if (html.startsWith("</div", i)) {
+        depth--;
+        if (depth === 0) break;
+        i += 5;
+      } else if (html.startsWith("<div", i)) {
+        depth++;
+        i += 4;
+      } else {
+        i++;
+      }
+    } else {
+      i++;
+    }
+  }
+  return html.slice(start, i).trim();
+}
+
+/**
  * Extract ALL inline <script>...</script> blocks from an HTML file
  * and return them as separate strings.  This is necessary because the
  * HTML files split the app code across multiple script tags.
@@ -406,7 +438,8 @@ function transformUnits(
       }>;
     }
   >,
-  gradeActivityMap?: Record<string, string>
+  gradeActivityMap?: Record<string, string>,
+  rawHtml?: string
 ): Unit[] {
   const units: Unit[] = [];
   let globalSortOrder = 1;
@@ -439,7 +472,10 @@ function transformUnits(
         storyText: l.story?.text || "",
         conceptTitle: l.concept?.title || "",
         conceptText: l.concept?.text || "",
-        conceptHtml: l.concept?.html || l.concept?.htmlId || "",
+        conceptHtml: l.concept?.html ||
+          (l.concept?.htmlId && rawHtml
+            ? extractDivById(rawHtml, l.concept.htmlId)
+            : l.concept?.htmlId) || "",
         quizQuestion: l.quiz?.q || "",
         quizChoices: (l.quiz?.choices || []).map((c) => ({
           text: c.text,
@@ -558,7 +594,7 @@ function processGrade(
   if (unitsRaw) {
     const parsed = safeEval<Record<string, any>>(unitsRaw, "UNITS");
     if (parsed) {
-      units = transformUnits(parsed, options.activityMap);
+      units = transformUnits(parsed, options.activityMap, html);
       const totalLessons = units.reduce(
         (acc, u) => acc + u.lessons.length,
         0
