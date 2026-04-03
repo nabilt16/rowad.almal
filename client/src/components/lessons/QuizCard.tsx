@@ -133,39 +133,44 @@ function getChoiceStyle(state: ChoiceState): CSSProperties {
 }
 
 export default function QuizCard({ question, choices, onAnswer }: QuizCardProps) {
-  const [answered, setAnswered] = useState(false);
+  const [locked, setLocked] = useState(false);       // true only after correct answer
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [isCorrect, setIsCorrect] = useState(false);
+  const [showFeedback, setShowFeedback] = useState(false);
 
   const handleChoice = (index: number) => {
-    if (answered) return;
+    if (locked || showFeedback) return;
 
     playClick();
     const correct = choices[index].correct;
-    setAnswered(true);
     setSelectedIndex(index);
     setIsCorrect(correct);
+    setShowFeedback(true);
 
     if (correct) {
+      setLocked(true);
       setTimeout(() => {
         playCorrect();
         flyStars(5);
         confettiBurst();
       }, 150);
+      onAnswer(index, correct);
     } else {
       setTimeout(() => {
         playWrong();
       }, 100);
+      // Reset after 1.8s so student can try again
+      setTimeout(() => {
+        setShowFeedback(false);
+        setSelectedIndex(null);
+      }, 1800);
     }
-
-    onAnswer(index, correct);
   };
 
   const getState = (index: number): ChoiceState => {
-    if (!answered) return 'idle';
+    if (!showFeedback) return 'idle';
     if (index === selectedIndex) return isCorrect ? 'ok' : 'bad';
-    if (choices[index].correct && !isCorrect) return 'ok'; // Reveal the correct one
-    return 'dim';
+    return 'idle';
   };
 
   return (
@@ -184,7 +189,7 @@ export default function QuizCard({ question, choices, onAnswer }: QuizCardProps)
             className={`choice ${getState(i) === 'ok' ? 'ok' : getState(i) === 'bad' ? 'bad' : ''}`}
             style={getChoiceStyle(getState(i))}
             onClick={() => handleChoice(i)}
-            disabled={answered}
+            disabled={locked || showFeedback}
           >
             <span style={choiceIconStyle}>
               {getState(i) === 'ok'
@@ -198,7 +203,7 @@ export default function QuizCard({ question, choices, onAnswer }: QuizCardProps)
         ))}
       </div>
 
-      {answered && (
+      {showFeedback && (
         <div
           className="feedback-box"
           style={isCorrect ? feedbackOkStyle : feedbackBadStyle}
@@ -209,9 +214,7 @@ export default function QuizCard({ question, choices, onAnswer }: QuizCardProps)
             </>
           ) : (
             <>
-              <strong>{'\uD83D\uDCA1'} لا بأس!</strong> الإجابة الصحيحة هي:{' '}
-              <strong>{choices.find((c) => c.correct)?.text}</strong>.
-              تعلّم من الخطأ وحاول مرة أخرى.
+              <strong>{'\uD83D\uDCA1'} لا بأس!</strong> حاول مرة أخرى!
             </>
           )}
         </div>
