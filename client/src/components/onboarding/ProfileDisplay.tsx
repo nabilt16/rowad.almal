@@ -41,7 +41,7 @@ const avatarStyle: CSSProperties = {
 };
 
 const nameStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '22px',
   fontWeight: 800,
   color: 'var(--white)',
@@ -69,7 +69,7 @@ const infoItem: CSSProperties = {
 };
 
 const infoLabel: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '11px',
   fontWeight: 600,
   color: 'var(--gray-3)',
@@ -93,7 +93,7 @@ const editBtnStyle: CSSProperties = {
   border: '1px solid rgba(255, 255, 255, 0.15)',
   borderRadius: '12px',
   padding: '8px 16px',
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '13px',
   fontWeight: 600,
   color: 'var(--sky)',

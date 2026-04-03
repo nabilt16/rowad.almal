@@ -55,7 +55,7 @@ const stepCircleBase: CSSProperties = {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '14px',
   fontWeight: 700,
   flexShrink: 0,
@@ -71,7 +71,7 @@ const stepLineBase: CSSProperties = {
 };
 
 const headingStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '24px',
   fontWeight: 900,
   color: 'var(--navy)',
@@ -81,7 +81,7 @@ const headingStyle: CSSProperties = {
 
 const labelStyle: CSSProperties = {
   display: 'block',
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '14px',
   fontWeight: 600,
   color: 'var(--text)',
@@ -137,7 +137,7 @@ const genderEmojiStyle: CSSProperties = {
 };
 
 const genderLabelStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '16px',
   fontWeight: 700,
   color: 'var(--navy)',
@@ -157,7 +157,7 @@ const whoWorksBtnBase: CSSProperties = {
   border: '3px solid var(--gray-2)',
   background: 'var(--gray-1)',
   cursor: 'pointer',
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '16px',
   fontWeight: 700,
   color: 'var(--navy)',
@@ -185,7 +185,7 @@ const primaryBtnStyle: CSSProperties = {
   padding: '14px 32px',
   fontSize: '18px',
   fontWeight: 700,
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   background: 'linear-gradient(135deg, var(--blue), var(--blue-lt))',
   color: 'var(--white)',
   border: 'none',
@@ -199,7 +199,7 @@ const secondaryBtnStyle: CSSProperties = {
   padding: '14px 24px',
   fontSize: '16px',
   fontWeight: 600,
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   background: 'transparent',
   color: 'var(--muted)',
   border: '2px solid var(--gray-2)',
@@ -221,7 +221,7 @@ const welcomeEmojiStyle: CSSProperties = {
 };
 
 const welcomeNameStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '32px',
   fontWeight: 900,
   color: 'var(--navy)',
@@ -241,7 +241,7 @@ const startBtnStyle: CSSProperties = {
   padding: '16px',
   fontSize: '20px',
   fontWeight: 800,
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   background: 'linear-gradient(135deg, var(--gold), #E65100)',
   color: 'var(--white)',
   border: 'none',
@@ -257,7 +257,7 @@ const errorStyle: CSSProperties = {
   padding: '10px 16px',
   borderRadius: 'var(--r)',
   fontSize: '14px',
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   marginBottom: '12px',
   textAlign: 'center',
 };

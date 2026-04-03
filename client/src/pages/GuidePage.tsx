@@ -12,7 +12,7 @@ const pageStyle: CSSProperties = {
 };
 
 const backLinkStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '14px',
   color: 'var(--sky)',
   textDecoration: 'none',
@@ -31,7 +31,7 @@ const headerStyle: CSSProperties = {
 };
 
 const titleStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '28px',
   fontWeight: 900,
   color: 'var(--gold)',

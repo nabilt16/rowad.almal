@@ -30,7 +30,7 @@ const panelStyle: CSSProperties = {
 };
 
 const headingStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '20px',
   fontWeight: 800,
   color: 'var(--gold)',
@@ -51,7 +51,7 @@ const radius = (svgSize - strokeWidth) / 2;
 const circumference = 2 * Math.PI * radius;
 
 const summaryTextStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '15px',
   fontWeight: 600,
   color: 'rgba(255,255,255,0.7)',
@@ -59,14 +59,14 @@ const summaryTextStyle: CSSProperties = {
 };
 
 const percentTextStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontWeight: 800,
   fontSize: '28px',
   fill: 'var(--gold)',
 };
 
 const percentLabelStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontWeight: 600,
   fontSize: '13px',
   fill: 'rgba(255,255,255,0.5)',
@@ -80,7 +80,7 @@ const dividerStyle: CSSProperties = {
 };
 
 const unitsSectionHeading: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '16px',
   fontWeight: 700,
   color: 'rgba(255,255,255,0.8)',
@@ -88,7 +88,7 @@ const unitsSectionHeading: CSSProperties = {
 };
 
 const errorStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '15px',
   color: 'var(--red)',
   textAlign: 'center',

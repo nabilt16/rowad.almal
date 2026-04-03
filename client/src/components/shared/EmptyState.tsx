@@ -24,7 +24,7 @@ const iconStyle: CSSProperties = {
 };
 
 const titleStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '20px',
   fontWeight: 700,
   color: 'var(--white)',

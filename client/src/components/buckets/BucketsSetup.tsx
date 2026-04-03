@@ -21,7 +21,7 @@ const headerStyle: CSSProperties = {
 };
 
 const titleStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '28px',
   fontWeight: 900,
   color: 'var(--gold)',
@@ -45,7 +45,7 @@ const cardStyle: CSSProperties = {
 };
 
 const stepLabelStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '16px',
   fontWeight: 700,
   color: 'var(--sky)',
@@ -74,7 +74,7 @@ const inputGroupStyle: CSSProperties = {
 };
 
 const labelStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '14px',
   fontWeight: 600,
   color: 'var(--white)',
@@ -99,7 +99,7 @@ const sliderGroupStyle: CSSProperties = {
 };
 
 const sliderLabelStyle = (color: string): CSSProperties => ({
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '15px',
   fontWeight: 700,
   color,
@@ -133,7 +133,7 @@ const percentSegmentStyle = (color: string, pct: number): CSSProperties => ({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '12px',
   fontWeight: 700,
   color: 'var(--white)',
@@ -142,7 +142,7 @@ const percentSegmentStyle = (color: string, pct: number): CSSProperties => ({
 });
 
 const sumWarningStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '13px',
   color: 'var(--red)',
   textAlign: 'center',
@@ -156,7 +156,7 @@ const navBtnsStyle: CSSProperties = {
 };
 
 const primaryBtnStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '16px',
   fontWeight: 700,
   padding: '12px 32px',
@@ -170,7 +170,7 @@ const primaryBtnStyle: CSSProperties = {
 };
 
 const secondaryBtnStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '16px',
   fontWeight: 700,
   padding: '12px 32px',
@@ -183,7 +183,7 @@ const secondaryBtnStyle: CSSProperties = {
 };
 
 const errorStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '14px',
   color: 'var(--red)',
   textAlign: 'center',

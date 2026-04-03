@@ -49,7 +49,7 @@ const gradeBadgeStyle: CSSProperties = {
   padding: '5px 18px',
   borderRadius: '30px',
   marginBottom: '18px',
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
 };
 
 const titleStyle: CSSProperties = {

@@ -16,7 +16,7 @@ const pageStyle: CSSProperties = {
 };
 
 const backLinkStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '14px',
   color: 'var(--sky)',
   textDecoration: 'none',
@@ -27,7 +27,7 @@ const backLinkStyle: CSSProperties = {
 const errorStyle: CSSProperties = {
   textAlign: 'center',
   color: 'var(--red)',
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '16px',
   padding: '40px',
 };

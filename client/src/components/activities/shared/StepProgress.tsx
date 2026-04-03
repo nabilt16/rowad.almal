@@ -22,7 +22,7 @@ const stepCircleBase: CSSProperties = {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '14px',
   fontWeight: 700,
   flexShrink: 0,

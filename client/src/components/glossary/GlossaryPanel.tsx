@@ -34,7 +34,7 @@ const searchInputStyle: CSSProperties = {
   border: '1px solid rgba(255,255,255,0.12)',
   borderRadius: 'var(--r-lg)',
   color: 'var(--white)',
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '16px',
   fontWeight: 600,
   outline: 'none',
@@ -68,7 +68,7 @@ const unitIconStyle: CSSProperties = {
 };
 
 const unitNameStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '18px',
   fontWeight: 700,
   color: 'var(--white)',
@@ -76,7 +76,7 @@ const unitNameStyle: CSSProperties = {
 };
 
 const termCountStyle = (color: string): CSSProperties => ({
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '13px',
   fontWeight: 600,
   color: color,
@@ -98,7 +98,7 @@ const chevronStyle = (expanded: boolean): CSSProperties => ({
 const emptyStyle: CSSProperties = {
   textAlign: 'center',
   color: 'var(--gray-3)',
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '18px',
   padding: '60px 20px',
   background: 'rgba(255,255,255,0.04)',
@@ -109,7 +109,7 @@ const emptyStyle: CSSProperties = {
 const noResultsStyle: CSSProperties = {
   textAlign: 'center',
   color: 'var(--gray-3)',
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '16px',
   padding: '40px 20px',
 };
@@ -117,7 +117,7 @@ const noResultsStyle: CSSProperties = {
 const errorStyle: CSSProperties = {
   textAlign: 'center',
   color: 'var(--red)',
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '16px',
   padding: '40px',
 };

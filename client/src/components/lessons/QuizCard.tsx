@@ -24,7 +24,7 @@ const cardStyle: CSSProperties = {
 
 const headingStyle: CSSProperties = {
   fontFamily: "'IBM Plex Arabic', sans-serif",
-  fontSize: '17px',
+  fontSize: '20px',
   fontWeight: 800,
   marginBottom: '18px',
   color: 'white',

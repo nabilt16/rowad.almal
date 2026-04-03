@@ -56,7 +56,7 @@ body {
 =================================== */
 h1, h2, h3, h4, h5, h6,
 .font-heading {
-  font-family: 'Cairo', sans-serif;
+  font-family: 'IBM Plex Arabic', sans-serif;
 }
 
 .font-body {
@@ -79,7 +79,7 @@ a:hover {
    Buttons — base
 =================================== */
 button {
-  font-family: 'Cairo', sans-serif;
+  font-family: 'IBM Plex Arabic', sans-serif;
   cursor: pointer;
   border: none;
   outline: none;

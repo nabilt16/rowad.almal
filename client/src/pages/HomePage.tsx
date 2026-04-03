@@ -40,7 +40,7 @@ const headerStyle: CSSProperties = {
 };
 
 const logoStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '42px',
   fontWeight: 900,
   color: 'var(--gold)',
@@ -48,7 +48,7 @@ const logoStyle: CSSProperties = {
 };
 
 const welcomeStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '18px',
   color: 'var(--gray-3)',
 };
@@ -60,7 +60,7 @@ const logoutBtnStyle: CSSProperties = {
   padding: '8px 20px',
   fontSize: '14px',
   fontWeight: 600,
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   background: 'rgba(255,255,255,0.1)',
   color: 'var(--gray-3)',
   border: '1px solid var(--gray-3)',
@@ -96,14 +96,14 @@ const emojiStyle: CSSProperties = {
 };
 
 const gradeNameStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '24px',
   fontWeight: 700,
   marginBottom: '8px',
 };
 
 const descStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '14px',
   opacity: 0.9,
   marginBottom: '16px',
@@ -114,7 +114,7 @@ const enterBtnStyle: CSSProperties = {
   padding: '10px 28px',
   fontSize: '16px',
   fontWeight: 700,
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   background: 'rgba(255,255,255,0.2)',
   color: 'var(--white)',
   border: '2px solid rgba(255,255,255,0.4)',
@@ -146,7 +146,7 @@ const parentBtnStyle: CSSProperties = {
   padding: '12px 28px',
   fontSize: '15px',
   fontWeight: 700,
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   background: 'rgba(255,255,255,0.08)',
   color: 'var(--white)',
   border: '1px solid rgba(255,255,255,0.15)',
@@ -156,7 +156,7 @@ const parentBtnStyle: CSSProperties = {
 };
 
 const adminLinkStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '13px',
   color: 'var(--gray-3)',
   textDecoration: 'none',

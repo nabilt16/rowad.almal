@@ -39,14 +39,14 @@ const iconWrapStyle: CSSProperties = {
 };
 
 const labelStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '18px',
   fontWeight: 700,
   color: 'var(--white)',
 };
 
 const pctBadgeStyle = (color: string): CSSProperties => ({
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '13px',
   fontWeight: 700,
   color,
@@ -56,7 +56,7 @@ const pctBadgeStyle = (color: string): CSSProperties => ({
 });
 
 const balanceStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '28px',
   fontWeight: 900,
   color: 'var(--gold)',
@@ -89,7 +89,7 @@ const bucketPctLabelStyle: CSSProperties = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '14px',
   fontWeight: 700,
   color: 'var(--white)',
@@ -106,14 +106,14 @@ const goalStyle: CSSProperties = {
 };
 
 const goalNameStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontWeight: 700,
   color: 'var(--white)',
   fontSize: '14px',
 };
 
 const useBtnStyle = (color: string): CSSProperties => ({
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '14px',
   fontWeight: 700,
   padding: '8px 24px',
@@ -150,7 +150,7 @@ const modalStyle: CSSProperties = {
 };
 
 const modalTitleStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '20px',
   fontWeight: 700,
   color: 'var(--white)',
@@ -175,7 +175,7 @@ const modalBtnsStyle: CSSProperties = {
 };
 
 const cancelBtnStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '14px',
   fontWeight: 700,
   padding: '8px 20px',

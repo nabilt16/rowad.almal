@@ -47,7 +47,7 @@ const unitDotStyle = (color: string): CSSProperties => ({
 });
 
 const unitNameStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '20px',
   fontWeight: 800,
   color: 'var(--white)',
@@ -55,7 +55,7 @@ const unitNameStyle: CSSProperties = {
 };
 
 const lessonCountStyle = (color: string): CSSProperties => ({
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '13px',
   fontWeight: 600,
   color: color,
@@ -68,7 +68,7 @@ const lessonCountStyle = (color: string): CSSProperties => ({
 const emptyStyle: CSSProperties = {
   textAlign: 'center',
   color: 'var(--gray-3)',
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '18px',
   padding: '60px 20px',
   background: 'rgba(255,255,255,0.04)',
@@ -79,7 +79,7 @@ const emptyStyle: CSSProperties = {
 const errorStyle: CSSProperties = {
   textAlign: 'center',
   color: 'var(--red)',
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '16px',
   padding: '40px',
 };

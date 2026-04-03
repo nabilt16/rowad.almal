@@ -22,7 +22,7 @@ const cardStyle = (accent: string): CSSProperties => ({
 });
 
 const termTitleStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '20px',
   fontWeight: 800,
   color: 'var(--white)',
@@ -57,7 +57,7 @@ const exampleBoxStyle = (accent: string): CSSProperties => ({
 });
 
 const exampleLabelStyle = (accent: string): CSSProperties => ({
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '13px',
   fontWeight: 700,
   color: accent,

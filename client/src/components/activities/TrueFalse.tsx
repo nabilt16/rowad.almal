@@ -25,7 +25,7 @@ const cardStyle: CSSProperties = {
 };
 
 const titleStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '20px',
   fontWeight: 700,
   color: 'var(--white)',
@@ -34,7 +34,7 @@ const titleStyle: CSSProperties = {
 };
 
 const progressTextStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '14px',
   color: 'var(--gray-3)',
   marginBottom: '24px',
@@ -64,7 +64,7 @@ const tfButtonBase: CSSProperties = {
   maxWidth: '200px',
   padding: '14px 24px',
   borderRadius: 'var(--r)',
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '18px',
   fontWeight: 700,
   cursor: 'pointer',
@@ -73,7 +73,7 @@ const tfButtonBase: CSSProperties = {
 };
 
 const feedbackStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '15px',
   padding: '12px 16px',
   borderRadius: 'var(--r)',
@@ -154,7 +154,7 @@ export default function TrueFalse({ config, onComplete }: TrueFalseProps) {
           </div>
           <div
             style={{
-              fontFamily: "'Cairo', sans-serif",
+              fontFamily: "'IBM Plex Arabic', sans-serif",
               fontSize: '22px',
               fontWeight: 700,
               color: 'var(--gold)',
@@ -165,7 +165,7 @@ export default function TrueFalse({ config, onComplete }: TrueFalseProps) {
           </div>
           <div
             style={{
-              fontFamily: "'Cairo', sans-serif",
+              fontFamily: "'IBM Plex Arabic', sans-serif",
               fontSize: '16px',
               color: 'var(--gray-3)',
             }}

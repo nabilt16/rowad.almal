@@ -19,7 +19,7 @@ const spinnerStyle: CSSProperties = {
 };
 
 const textStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '16px',
   color: 'var(--gray-3)',
   fontWeight: 600,

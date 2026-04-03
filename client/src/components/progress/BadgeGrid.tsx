@@ -19,7 +19,7 @@ const containerStyle: CSSProperties = {
 };
 
 const headingStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '20px',
   fontWeight: 800,
   color: 'var(--gold)',
@@ -42,7 +42,7 @@ const gridStyle: CSSProperties = {
 };
 
 const emptyStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '15px',
   color: 'rgba(255,255,255,0.45)',
   textAlign: 'center',

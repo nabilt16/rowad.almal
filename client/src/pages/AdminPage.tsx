@@ -29,7 +29,7 @@ const pageStyle: CSSProperties = {
 };
 
 const backLinkStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '14px',
   color: 'var(--sky)',
   textDecoration: 'none',
@@ -38,7 +38,7 @@ const backLinkStyle: CSSProperties = {
 };
 
 const titleStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '28px',
   fontWeight: 900,
   color: 'var(--gold)',
@@ -46,7 +46,7 @@ const titleStyle: CSSProperties = {
 };
 
 const subtitleStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '14px',
   color: 'var(--gray-3)',
   marginBottom: '32px',
@@ -65,7 +65,7 @@ const tabBarStyle: CSSProperties = {
 const tabBtnBase: CSSProperties = {
   flex: 1,
   padding: '12px 16px',
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '15px',
   fontWeight: 700,
   border: 'none',
@@ -99,7 +99,7 @@ const accessDeniedIcon: CSSProperties = {
 };
 
 const accessDeniedTitle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '24px',
   fontWeight: 800,
   color: 'var(--red)',
@@ -107,14 +107,14 @@ const accessDeniedTitle: CSSProperties = {
 };
 
 const accessDeniedText: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '16px',
   color: 'var(--gray-3)',
   marginBottom: '32px',
 };
 
 const accessDeniedLink: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '14px',
   color: 'var(--sky)',
   textDecoration: 'none',
@@ -124,7 +124,7 @@ const loadingStyle: CSSProperties = {
   textAlign: 'center',
   padding: '60px 20px',
   color: 'var(--gray-3)',
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '16px',
 };
 
@@ -236,7 +236,7 @@ function UsersTab() {
 
   const tableHeaderStyle: CSSProperties = {
     padding: '14px 16px',
-    fontFamily: "'Cairo', sans-serif",
+    fontFamily: "'IBM Plex Arabic', sans-serif",
     fontSize: '13px',
     fontWeight: 700,
     color: 'var(--gold)',
@@ -256,7 +256,7 @@ function UsersTab() {
     <div style={glassCardStyle}>
       <h2
         style={{
-          fontFamily: "'Cairo', sans-serif",
+          fontFamily: "'IBM Plex Arabic', sans-serif",
           fontSize: '18px',
           fontWeight: 800,
           color: 'var(--white)',
@@ -352,7 +352,7 @@ function UserRow({
     borderRadius: '10px',
     fontSize: '12px',
     fontWeight: 700,
-    fontFamily: "'Cairo', sans-serif",
+    fontFamily: "'IBM Plex Arabic', sans-serif",
     background: bg,
     color,
   });
@@ -431,7 +431,7 @@ function ExpandedUserDetail({
 }) {
   if (loading) {
     return (
-      <div style={{ padding: '24px', textAlign: 'center', color: 'var(--gray-3)', fontFamily: "'Cairo', sans-serif" }}>
+      <div style={{ padding: '24px', textAlign: 'center', color: 'var(--gray-3)', fontFamily: "'IBM Plex Arabic', sans-serif" }}>
         جارٍ تحميل التفاصيل...
       </div>
     );
@@ -439,14 +439,14 @@ function ExpandedUserDetail({
 
   if (!data) {
     return (
-      <div style={{ padding: '24px', textAlign: 'center', color: 'var(--red)', fontFamily: "'Cairo', sans-serif" }}>
+      <div style={{ padding: '24px', textAlign: 'center', color: 'var(--red)', fontFamily: "'IBM Plex Arabic', sans-serif" }}>
         فشل تحميل التفاصيل
       </div>
     );
   }
 
   const sectionTitle: CSSProperties = {
-    fontFamily: "'Cairo', sans-serif",
+    fontFamily: "'IBM Plex Arabic', sans-serif",
     fontSize: '14px',
     fontWeight: 700,
     color: 'var(--gold)',
@@ -471,7 +471,7 @@ function ExpandedUserDetail({
     fontSize: '12px',
     display: 'block',
     marginBottom: '2px',
-    fontFamily: "'Cairo', sans-serif",
+    fontFamily: "'IBM Plex Arabic', sans-serif",
   };
 
   return (
@@ -502,7 +502,7 @@ function ExpandedUserDetail({
       <div style={{ padding: '0 24px 16px' }}>
         <h4 style={sectionTitle}>الدروس المكتملة ({data.lessonProgress.length})</h4>
         {data.lessonProgress.length === 0 ? (
-          <p style={{ fontSize: '13px', color: 'var(--gray-3)', fontFamily: "'Cairo', sans-serif" }}>
+          <p style={{ fontSize: '13px', color: 'var(--gray-3)', fontFamily: "'IBM Plex Arabic', sans-serif" }}>
             لم يكمل أي درس بعد
           </p>
         ) : (
@@ -521,7 +521,7 @@ function ExpandedUserDetail({
                   padding: '3px 10px',
                   borderRadius: '8px',
                   fontSize: '11px',
-                  fontFamily: "'Cairo', sans-serif",
+                  fontFamily: "'IBM Plex Arabic', sans-serif",
                   background: 'rgba(46,125,50,0.15)',
                   color: 'var(--green-lt)',
                 }}
@@ -534,7 +534,7 @@ function ExpandedUserDetail({
                 style={{
                   fontSize: '12px',
                   color: 'var(--gray-3)',
-                  fontFamily: "'Cairo', sans-serif",
+                  fontFamily: "'IBM Plex Arabic', sans-serif",
                   alignSelf: 'center',
                 }}
               >
@@ -549,7 +549,7 @@ function ExpandedUserDetail({
       <div style={{ padding: '0 24px 16px' }}>
         <h4 style={sectionTitle}>الشارات ({data.userBadges.length})</h4>
         {data.userBadges.length === 0 ? (
-          <p style={{ fontSize: '13px', color: 'var(--gray-3)', fontFamily: "'Cairo', sans-serif" }}>
+          <p style={{ fontSize: '13px', color: 'var(--gray-3)', fontFamily: "'IBM Plex Arabic', sans-serif" }}>
             لم يحصل على شارات بعد
           </p>
         ) : (
@@ -564,7 +564,7 @@ function ExpandedUserDetail({
                   padding: '4px 12px',
                   borderRadius: '12px',
                   fontSize: '13px',
-                  fontFamily: "'Cairo', sans-serif",
+                  fontFamily: "'IBM Plex Arabic', sans-serif",
                   background: 'rgba(249,168,37,0.12)',
                   color: 'var(--gold-lt)',
                 }}
@@ -582,11 +582,11 @@ function ExpandedUserDetail({
         <div style={{ padding: '0 24px 16px' }}>
           <h4 style={sectionTitle}>سلسلة المواظبة</h4>
           <div style={{ display: 'flex', gap: '24px' }}>
-            <div style={{ fontFamily: "'Cairo', sans-serif", fontSize: '13px', color: 'var(--white)' }}>
+            <div style={{ fontFamily: "'IBM Plex Arabic', sans-serif", fontSize: '13px', color: 'var(--white)' }}>
               <span style={{ color: 'var(--gray-3)' }}>الحالية: </span>
               <strong style={{ color: 'var(--gold)' }}>{data.streak.currentStreak}</strong> يوم
             </div>
-            <div style={{ fontFamily: "'Cairo', sans-serif", fontSize: '13px', color: 'var(--white)' }}>
+            <div style={{ fontFamily: "'IBM Plex Arabic', sans-serif", fontSize: '13px', color: 'var(--white)' }}>
               <span style={{ color: 'var(--gray-3)' }}>الأطول: </span>
               <strong style={{ color: 'var(--sky)' }}>{data.streak.longestStreak}</strong> يوم
             </div>
@@ -617,7 +617,7 @@ function BucketMini({ label, amount, color }: { label: string; amount: number; c
         borderRadius: '10px',
         background: 'rgba(255,255,255,0.05)',
         border: `1px solid ${color}33`,
-        fontFamily: "'Cairo', sans-serif",
+        fontFamily: "'IBM Plex Arabic', sans-serif",
         fontSize: '13px',
         color: 'var(--white)',
       }}
@@ -715,7 +715,7 @@ function StatsTab() {
             <div style={{ fontSize: '40px', marginBottom: '12px' }}>{card.icon}</div>
             <div
               style={{
-                fontFamily: "'Cairo', sans-serif",
+                fontFamily: "'IBM Plex Arabic', sans-serif",
                 fontSize: '36px',
                 fontWeight: 900,
                 color: card.color,
@@ -727,7 +727,7 @@ function StatsTab() {
             </div>
             <div
               style={{
-                fontFamily: "'Cairo', sans-serif",
+                fontFamily: "'IBM Plex Arabic', sans-serif",
                 fontSize: '14px',
                 fontWeight: 600,
                 color: 'var(--white)',
@@ -754,7 +754,7 @@ function ContentTab() {
       <div style={glassCardStyle}>
         <h2
           style={{
-            fontFamily: "'Cairo', sans-serif",
+            fontFamily: "'IBM Plex Arabic', sans-serif",
             fontSize: '18px',
             fontWeight: 800,
             color: 'var(--white)',
@@ -765,7 +765,7 @@ function ContentTab() {
         </h2>
         <p
           style={{
-            fontFamily: "'Cairo', sans-serif",
+            fontFamily: "'IBM Plex Arabic', sans-serif",
             fontSize: '14px',
             color: 'var(--gray-3)',
             marginBottom: '24px',
@@ -778,7 +778,7 @@ function ContentTab() {
 
         <h3
           style={{
-            fontFamily: "'Cairo', sans-serif",
+            fontFamily: "'IBM Plex Arabic', sans-serif",
             fontSize: '15px',
             fontWeight: 700,
             color: 'var(--gold)',
@@ -805,7 +805,7 @@ function ContentTab() {
               <div>
                 <div
                   style={{
-                    fontFamily: "'Cairo', sans-serif",
+                    fontFamily: "'IBM Plex Arabic', sans-serif",
                     fontSize: '16px',
                     fontWeight: 700,
                     color: 'var(--white)',
@@ -815,7 +815,7 @@ function ContentTab() {
                 </div>
                 <div
                   style={{
-                    fontFamily: "'Cairo', sans-serif",
+                    fontFamily: "'IBM Plex Arabic', sans-serif",
                     fontSize: '12px',
                     color: 'var(--gray-3)',
                     marginTop: '4px',
@@ -826,7 +826,7 @@ function ContentTab() {
               </div>
               <div
                 style={{
-                  fontFamily: "'Cairo', sans-serif",
+                  fontFamily: "'IBM Plex Arabic', sans-serif",
                   fontSize: '24px',
                   fontWeight: 900,
                   color: 'var(--sky)',

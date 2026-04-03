@@ -22,7 +22,7 @@ const cardStyle: CSSProperties = {
 };
 
 const titleStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '28px',
   fontWeight: 900,
   color: 'var(--navy)',
@@ -31,7 +31,7 @@ const titleStyle: CSSProperties = {
 };
 
 const subtitleStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '16px',
   color: 'var(--muted)',
   textAlign: 'center',
@@ -40,7 +40,7 @@ const subtitleStyle: CSSProperties = {
 
 const labelStyle: CSSProperties = {
   display: 'block',
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '14px',
   fontWeight: 600,
   color: 'var(--text)',
@@ -64,7 +64,7 @@ const buttonStyle: CSSProperties = {
   padding: '14px',
   fontSize: '18px',
   fontWeight: 700,
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   background: 'linear-gradient(135deg, var(--green), var(--green-lt))',
   color: 'var(--white)',
   border: 'none',
@@ -75,7 +75,7 @@ const buttonStyle: CSSProperties = {
 
 const linkContainerStyle: CSSProperties = {
   textAlign: 'center',
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '14px',
   color: 'var(--muted)',
 };
@@ -86,7 +86,7 @@ const errorStyle: CSSProperties = {
   padding: '10px 16px',
   borderRadius: 'var(--r)',
   fontSize: '14px',
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   marginBottom: '16px',
   textAlign: 'center',
 };

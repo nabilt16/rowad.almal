@@ -39,7 +39,7 @@ const chevronStyle = (expanded: boolean): CSSProperties => ({
 });
 
 const lessonTitleStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '17px',
   fontWeight: 700,
   color: 'var(--white)',
@@ -47,7 +47,7 @@ const lessonTitleStyle: CSSProperties = {
 };
 
 const timeChipStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '13px',
   fontWeight: 600,
   color: 'var(--sky)',
@@ -69,7 +69,7 @@ const sectionStyle: CSSProperties = {
 };
 
 const sectionTitleStyle = (color: string): CSSProperties => ({
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '15px',
   fontWeight: 700,
   color: color,
@@ -110,7 +110,7 @@ const stepItemStyle: CSSProperties = {
 };
 
 const stepNumberStyle = (color: string): CSSProperties => ({
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '14px',
   fontWeight: 800,
   color: 'var(--white)',
@@ -130,7 +130,7 @@ const stepContentStyle: CSSProperties = {
 };
 
 const stepTitleStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '15px',
   fontWeight: 700,
   color: 'var(--white)',
@@ -145,7 +145,7 @@ const stepDescStyle: CSSProperties = {
 };
 
 const stepTimeChipStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '12px',
   fontWeight: 600,
   color: 'var(--gold)',
@@ -164,7 +164,7 @@ const questionItemStyle: CSSProperties = {
 };
 
 const questionNumberStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '14px',
   fontWeight: 700,
   color: 'var(--sky)',

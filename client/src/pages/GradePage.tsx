@@ -16,7 +16,7 @@ const pageStyle: CSSProperties = {
 };
 
 const backLinkStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '14px',
   color: 'var(--sky)',
   textDecoration: 'none',
@@ -25,7 +25,7 @@ const backLinkStyle: CSSProperties = {
 };
 
 const titleStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '32px',
   fontWeight: 900,
   color: 'var(--gold)',
@@ -42,7 +42,7 @@ const tabStyle = (active: boolean): CSSProperties => ({
   padding: '10px 24px',
   fontSize: '15px',
   fontWeight: 700,
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   background: active ? 'var(--blue)' : 'rgba(255,255,255,0.08)',
   color: active ? 'var(--white)' : 'var(--gray-3)',
   border: 'none',
@@ -60,7 +60,7 @@ const unitCardStyle: CSSProperties = {
 };
 
 const unitTitleStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '20px',
   fontWeight: 700,
   color: 'var(--white)',
@@ -86,7 +86,7 @@ const lessonItemStyle: CSSProperties = {
   color: 'var(--white)',
   textDecoration: 'none',
   transition: 'background 0.2s',
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '15px',
 };
 
@@ -99,7 +99,7 @@ const lessonEmojiStyle: CSSProperties = {
 const errorStyle: CSSProperties = {
   textAlign: 'center',
   color: 'var(--red)',
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '16px',
   padding: '40px',
 };
@@ -107,7 +107,7 @@ const errorStyle: CSSProperties = {
 const placeholderStyle: CSSProperties = {
   textAlign: 'center',
   color: 'var(--gray-3)',
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '18px',
   padding: '60px 20px',
 };

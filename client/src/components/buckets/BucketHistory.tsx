@@ -35,7 +35,7 @@ const sectionStyle: CSSProperties = {
 };
 
 const titleStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '20px',
   fontWeight: 700,
   color: 'var(--white)',
@@ -73,7 +73,7 @@ const infoStyle: CSSProperties = {
 };
 
 const labelTextStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '14px',
   fontWeight: 700,
   color: 'var(--white)',
@@ -86,13 +86,13 @@ const noteTextStyle: CSSProperties = {
 };
 
 const dateTextStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '11px',
   color: 'var(--muted)',
 };
 
 const amountStyle = (color: string): CSSProperties => ({
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '16px',
   fontWeight: 700,
   color,
@@ -102,7 +102,7 @@ const amountStyle = (color: string): CSSProperties => ({
 });
 
 const emptyStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '15px',
   color: 'var(--gray-3)',
   textAlign: 'center',

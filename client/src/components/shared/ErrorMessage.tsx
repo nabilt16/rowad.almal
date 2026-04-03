@@ -22,7 +22,7 @@ const iconStyle: CSSProperties = {
 };
 
 const messageStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '15px',
   fontWeight: 600,
   color: 'var(--red)',
@@ -35,7 +35,7 @@ const retryBtnStyle: CSSProperties = {
   padding: '8px 24px',
   fontSize: '14px',
   fontWeight: 700,
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   background: 'var(--red)',
   color: 'var(--white)',
   border: 'none',

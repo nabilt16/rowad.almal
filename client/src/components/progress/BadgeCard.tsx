@@ -72,7 +72,7 @@ const iconStyle = (earned: boolean): CSSProperties => ({
 });
 
 const nameStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '14px',
   fontWeight: 700,
   color: 'rgba(255,255,255,0.92)',
@@ -92,7 +92,7 @@ const earnedBadgeStyle: CSSProperties = {
   padding: '3px 10px',
   borderRadius: '12px',
   background: 'linear-gradient(135deg, var(--gold), #E65100)',
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '11px',
   fontWeight: 700,
   color: 'white',

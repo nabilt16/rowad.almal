@@ -41,7 +41,7 @@ const cardStyle: CSSProperties = {
 };
 
 const headingStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '22px',
   fontWeight: 900,
   color: 'var(--navy)',
@@ -50,7 +50,7 @@ const headingStyle: CSSProperties = {
 };
 
 const sectionTitle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '15px',
   fontWeight: 700,
   color: 'var(--muted)',
@@ -61,7 +61,7 @@ const sectionTitle: CSSProperties = {
 
 const labelStyle: CSSProperties = {
   display: 'block',
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '14px',
   fontWeight: 600,
   color: 'var(--text)',
@@ -102,7 +102,7 @@ const genderBtnBase: CSSProperties = {
   cursor: 'pointer',
   textAlign: 'center',
   transition: 'all 0.25s ease',
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '15px',
   fontWeight: 700,
   color: 'var(--navy)',
@@ -128,7 +128,7 @@ const whoWorksBtnBase: CSSProperties = {
   border: '3px solid var(--gray-2)',
   background: 'var(--gray-1)',
   cursor: 'pointer',
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '14px',
   fontWeight: 700,
   color: 'var(--navy)',
@@ -154,7 +154,7 @@ const saveBtnStyle: CSSProperties = {
   padding: '14px',
   fontSize: '18px',
   fontWeight: 700,
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   background: 'linear-gradient(135deg, var(--blue), var(--blue-lt))',
   color: 'var(--white)',
   border: 'none',
@@ -167,7 +167,7 @@ const cancelBtnStyle: CSSProperties = {
   padding: '14px 24px',
   fontSize: '16px',
   fontWeight: 600,
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   background: 'transparent',
   color: 'var(--muted)',
   border: '2px solid var(--gray-2)',
@@ -182,7 +182,7 @@ const errorStyle: CSSProperties = {
   padding: '10px 16px',
   borderRadius: 'var(--r)',
   fontSize: '14px',
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   marginBottom: '12px',
   textAlign: 'center',
 };

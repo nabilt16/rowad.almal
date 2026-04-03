@@ -17,14 +17,14 @@ const cardStyle: CSSProperties = {
 };
 
 const labelStyle: CSSProperties = {
-  fontSize: '14px',
+  fontSize: '20px',
   fontWeight: 800,
   color: 'var(--gold)',
   marginBottom: '10px',
   display: 'flex',
   alignItems: 'center',
   gap: '6px',
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   cursor: 'pointer',
   userSelect: 'none',
 };
@@ -46,8 +46,8 @@ const btnStyle: CSSProperties = {
   color: 'white',
   border: 'none',
   borderRadius: 'var(--r)',
-  fontFamily: "'Cairo', sans-serif",
-  fontSize: '15px',
+  fontFamily: "'IBM Plex Arabic', sans-serif",
+  fontSize: '17px',
   fontWeight: 700,
   cursor: 'pointer',
   transition: 'all 0.2s',

@@ -21,7 +21,7 @@ const pageStyle: CSSProperties = {
 };
 
 const backLinkStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '14px',
   color: 'var(--sky)',
   textDecoration: 'none',
@@ -30,7 +30,7 @@ const backLinkStyle: CSSProperties = {
 };
 
 const titleStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '28px',
   fontWeight: 900,
   color: 'var(--gold)',
@@ -47,7 +47,7 @@ const glassCardStyle: CSSProperties = {
 };
 
 const sectionTitleStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '16px',
   fontWeight: 800,
   color: 'var(--gold)',
@@ -58,7 +58,7 @@ const loadingStyle: CSSProperties = {
   textAlign: 'center',
   padding: '40px 20px',
   color: 'var(--gray-3)',
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '16px',
 };
 
@@ -143,7 +143,7 @@ function PinEntry({ onSuccess }: { onSuccess: () => void }) {
     textAlign: 'center',
     fontSize: '28px',
     fontWeight: 900,
-    fontFamily: "'Cairo', sans-serif",
+    fontFamily: "'IBM Plex Arabic', sans-serif",
     color: 'var(--white)',
     background: hasValue
       ? 'rgba(249,168,37,0.15)'
@@ -165,7 +165,7 @@ function PinEntry({ onSuccess }: { onSuccess: () => void }) {
         <div style={{ fontSize: '48px', marginBottom: '16px' }}>🔐</div>
         <h2
           style={{
-            fontFamily: "'Cairo', sans-serif",
+            fontFamily: "'IBM Plex Arabic', sans-serif",
             fontSize: '22px',
             fontWeight: 800,
             color: 'var(--white)',
@@ -176,7 +176,7 @@ function PinEntry({ onSuccess }: { onSuccess: () => void }) {
         </h2>
         <p
           style={{
-            fontFamily: "'Cairo', sans-serif",
+            fontFamily: "'IBM Plex Arabic', sans-serif",
             fontSize: '14px',
             color: 'var(--gray-3)',
             marginBottom: '32px',
@@ -215,7 +215,7 @@ function PinEntry({ onSuccess }: { onSuccess: () => void }) {
         {error && (
           <p
             style={{
-              fontFamily: "'Cairo', sans-serif",
+              fontFamily: "'IBM Plex Arabic', sans-serif",
               fontSize: '14px',
               color: 'var(--red)',
               marginBottom: '16px',
@@ -227,7 +227,7 @@ function PinEntry({ onSuccess }: { onSuccess: () => void }) {
 
         <p
           style={{
-            fontFamily: "'Cairo', sans-serif",
+            fontFamily: "'IBM Plex Arabic', sans-serif",
             fontSize: '12px',
             color: 'var(--gray-3)',
             opacity: 0.6,
@@ -331,7 +331,7 @@ function DashboardContent() {
       <h1 style={titleStyle}>لوحة ولي الأمر</h1>
       <p
         style={{
-          fontFamily: "'Cairo', sans-serif",
+          fontFamily: "'IBM Plex Arabic', sans-serif",
           fontSize: '14px',
           color: 'var(--gray-3)',
           textAlign: 'center',
@@ -348,7 +348,7 @@ function DashboardContent() {
         </div>
         <h2
           style={{
-            fontFamily: "'Cairo', sans-serif",
+            fontFamily: "'IBM Plex Arabic', sans-serif",
             fontSize: '22px',
             fontWeight: 800,
             color: 'var(--white)',
@@ -359,7 +359,7 @@ function DashboardContent() {
         </h2>
         <p
           style={{
-            fontFamily: "'Cairo', sans-serif",
+            fontFamily: "'IBM Plex Arabic', sans-serif",
             fontSize: '13px',
             color: 'var(--gray-3)',
           }}
@@ -401,7 +401,7 @@ function DashboardContent() {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                fontFamily: "'Cairo', sans-serif",
+                fontFamily: "'IBM Plex Arabic', sans-serif",
                 fontSize: '20px',
                 fontWeight: 900,
                 color: 'var(--gold)',
@@ -413,7 +413,7 @@ function DashboardContent() {
           <div>
             <div
               style={{
-                fontFamily: "'Cairo', sans-serif",
+                fontFamily: "'IBM Plex Arabic', sans-serif",
                 fontSize: '15px',
                 fontWeight: 700,
                 color: 'var(--white)',
@@ -424,7 +424,7 @@ function DashboardContent() {
             </div>
             <div
               style={{
-                fontFamily: "'Cairo', sans-serif",
+                fontFamily: "'IBM Plex Arabic', sans-serif",
                 fontSize: '13px',
                 color: 'var(--gray-3)',
               }}
@@ -471,7 +471,7 @@ function DashboardContent() {
                 >
                   <span
                     style={{
-                      fontFamily: "'Cairo', sans-serif",
+                      fontFamily: "'IBM Plex Arabic', sans-serif",
                       fontSize: '14px',
                       fontWeight: 700,
                       color: 'var(--white)',
@@ -481,7 +481,7 @@ function DashboardContent() {
                   </span>
                   <span
                     style={{
-                      fontFamily: "'Cairo', sans-serif",
+                      fontFamily: "'IBM Plex Arabic', sans-serif",
                       fontSize: '13px',
                       fontWeight: 600,
                       color: gradeColors[gp.gradeNumber] || 'var(--sky)',
@@ -522,7 +522,7 @@ function DashboardContent() {
         {earnedBadges.length === 0 ? (
           <p
             style={{
-              fontFamily: "'Cairo', sans-serif",
+              fontFamily: "'IBM Plex Arabic', sans-serif",
               fontSize: '14px',
               color: 'var(--gray-3)',
               textAlign: 'center',
@@ -555,7 +555,7 @@ function DashboardContent() {
                 </div>
                 <div
                   style={{
-                    fontFamily: "'Cairo', sans-serif",
+                    fontFamily: "'IBM Plex Arabic', sans-serif",
                     fontSize: '12px',
                     fontWeight: 700,
                     color: 'var(--gold-lt)',
@@ -567,7 +567,7 @@ function DashboardContent() {
                 {badge.earnedAt && (
                   <div
                     style={{
-                      fontFamily: "'Cairo', sans-serif",
+                      fontFamily: "'IBM Plex Arabic', sans-serif",
                       fontSize: '10px',
                       color: 'var(--gray-3)',
                       marginTop: '4px',
@@ -591,7 +591,7 @@ function DashboardContent() {
         {!bucketConfig ? (
           <p
             style={{
-              fontFamily: "'Cairo', sans-serif",
+              fontFamily: "'IBM Plex Arabic', sans-serif",
               fontSize: '14px',
               color: 'var(--gray-3)',
               textAlign: 'center',
@@ -608,7 +608,7 @@ function DashboardContent() {
                 justifyContent: 'center',
                 gap: '8px',
                 marginBottom: '20px',
-                fontFamily: "'Cairo', sans-serif",
+                fontFamily: "'IBM Plex Arabic', sans-serif",
                 fontSize: '13px',
                 color: 'var(--gray-3)',
               }}
@@ -662,7 +662,7 @@ function DashboardContent() {
         style={{
           textAlign: 'center',
           padding: '20px 0 40px',
-          fontFamily: "'Cairo', sans-serif",
+          fontFamily: "'IBM Plex Arabic', sans-serif",
           fontSize: '12px',
           color: 'var(--gray-3)',
           opacity: 0.5,
@@ -712,7 +712,7 @@ function BucketCard({
       <div style={{ fontSize: '28px', marginBottom: '6px' }}>{emoji}</div>
       <div
         style={{
-          fontFamily: "'Cairo', sans-serif",
+          fontFamily: "'IBM Plex Arabic', sans-serif",
           fontSize: '12px',
           fontWeight: 700,
           color,
@@ -723,7 +723,7 @@ function BucketCard({
       </div>
       <div
         style={{
-          fontFamily: "'Cairo', sans-serif",
+          fontFamily: "'IBM Plex Arabic', sans-serif",
           fontSize: '22px',
           fontWeight: 900,
           color: 'var(--white)',
@@ -734,7 +734,7 @@ function BucketCard({
       </div>
       <div
         style={{
-          fontFamily: "'Cairo', sans-serif",
+          fontFamily: "'IBM Plex Arabic', sans-serif",
           fontSize: '11px',
           color: 'var(--gray-3)',
         }}
@@ -745,7 +745,7 @@ function BucketCard({
         <div style={{ marginTop: '8px' }}>
           <div
             style={{
-              fontFamily: "'Cairo', sans-serif",
+              fontFamily: "'IBM Plex Arabic', sans-serif",
               fontSize: '10px',
               color: 'var(--gray-3)',
               marginBottom: '4px',

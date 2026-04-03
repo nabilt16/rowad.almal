@@ -20,7 +20,7 @@ const cardStyle: CSSProperties = {
 };
 
 const titleStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '20px',
   fontWeight: 700,
   color: 'var(--white)',
@@ -72,7 +72,7 @@ const checkBtnStyle: CSSProperties = {
   borderRadius: 'var(--r)',
   background: 'linear-gradient(135deg, var(--blue), var(--blue-lt))',
   color: 'var(--white)',
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '16px',
   fontWeight: 700,
   cursor: 'pointer',
@@ -81,7 +81,7 @@ const checkBtnStyle: CSSProperties = {
 };
 
 const feedbackStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '15px',
   padding: '12px 16px',
   borderRadius: 'var(--r)',
@@ -163,7 +163,7 @@ export default function Ordering({ config, onComplete }: OrderingProps) {
           <div key={itemIndex} style={getItemStyle(position)}>
             <span
               style={{
-                fontFamily: "'Cairo', sans-serif",
+                fontFamily: "'IBM Plex Arabic', sans-serif",
                 fontWeight: 700,
                 color: 'var(--gold)',
                 minWidth: '24px',

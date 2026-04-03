@@ -63,7 +63,7 @@ const stepStyle = (done: boolean): CSSProperties => ({
   flex: 1,
   textAlign: 'center',
   padding: '10px 8px',
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '13px',
   fontWeight: 700,
   color: done ? 'var(--green-lt)' : 'rgba(255,255,255,0.35)',
@@ -122,7 +122,7 @@ const completionEmojiStyle: CSSProperties = {
 };
 
 const completionTitleStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '24px',
   fontWeight: 900,
   color: 'var(--green-lt)',
@@ -146,7 +146,7 @@ const nextBtnStyle: CSSProperties = {
   color: 'white',
   border: 'none',
   borderRadius: 'var(--r)',
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '16px',
   fontWeight: 700,
   cursor: 'pointer',
@@ -158,7 +158,7 @@ const nextBtnStyle: CSSProperties = {
 const errorStyle: CSSProperties = {
   textAlign: 'center',
   color: 'var(--red)',
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '16px',
   padding: '40px',
 };
@@ -280,7 +280,7 @@ export default function LessonPage() {
           {/* Overall fraction */}
           <div
             style={{
-              fontFamily: "'Cairo', sans-serif",
+              fontFamily: "'IBM Plex Arabic', sans-serif",
               fontSize: '12px',
               fontWeight: 700,
               color: allDone ? 'var(--green-lt)' : 'rgba(255,255,255,0.4)',

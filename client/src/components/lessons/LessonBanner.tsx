@@ -61,7 +61,7 @@ const goalContainerStyle: CSSProperties = {
 };
 
 const goalLabelStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '16px',
   fontWeight: 800,
   color: 'rgba(255,255,255,0.7)',

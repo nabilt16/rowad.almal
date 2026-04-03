@@ -49,7 +49,7 @@ const cardStyle: CSSProperties = {
 };
 
 const activityTitleStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '22px',
   fontWeight: 900,
   color: 'var(--gold)',
@@ -63,7 +63,7 @@ const stepContainerStyle: CSSProperties = {
 };
 
 const stepTitleStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '18px',
   fontWeight: 700,
   color: 'var(--white)',
@@ -119,7 +119,7 @@ const nextBtnStyle: CSSProperties = {
   borderRadius: 'var(--r)',
   background: 'linear-gradient(135deg, var(--blue), var(--blue-lt))',
   color: 'var(--white)',
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '15px',
   fontWeight: 700,
   cursor: 'pointer',
@@ -134,7 +134,7 @@ const completeBtnStyle: CSSProperties = {
 };
 
 const feedbackStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '14px',
   padding: '10px 14px',
   borderRadius: 'var(--r)',

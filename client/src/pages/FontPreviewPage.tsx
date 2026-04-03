@@ -12,7 +12,7 @@ const FONTS: { name: string; family: string; description: string; tag?: string }
   },
   {
     name: 'Cairo',
-    family: "'Cairo', sans-serif",
+    family: "'IBM Plex Arabic', sans-serif",
     description: 'هندسي حديث، مناسب للأطفال، خط العناوين الحالي',
     tag: 'حديث',
   },
@@ -81,7 +81,7 @@ const pageStyle: CSSProperties = {
   color: 'white',
   direction: 'rtl',
   padding: '32px 20px 60px',
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
 };
 
 const headerStyle: CSSProperties = {
@@ -93,14 +93,14 @@ const titleStyle: CSSProperties = {
   fontSize: '28px',
   fontWeight: 900,
   color: '#FFD54F',
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   marginBottom: '8px',
 };
 
 const subtitleStyle: CSSProperties = {
   fontSize: '15px',
   color: 'rgba(255,255,255,0.55)',
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
 };
 
 const gridStyle: CSSProperties = {
@@ -132,7 +132,7 @@ const fontHeaderStyle: CSSProperties = {
 };
 
 const fontNameStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '14px',
   fontWeight: 700,
   color: '#64B5F6',
@@ -141,7 +141,7 @@ const fontNameStyle: CSSProperties = {
 const tagStyle = (selected: boolean): CSSProperties => ({
   fontSize: '11px',
   fontWeight: 700,
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   padding: '2px 10px',
   borderRadius: '20px',
   background: selected ? 'rgba(249,168,37,0.25)' : 'rgba(255,255,255,0.08)',
@@ -151,7 +151,7 @@ const tagStyle = (selected: boolean): CSSProperties => ({
 const descStyle: CSSProperties = {
   fontSize: '12px',
   color: 'rgba(255,255,255,0.4)',
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   marginRight: 'auto',
 };
 
@@ -167,7 +167,7 @@ const storyLabelStyle: CSSProperties = {
   fontSize: '12px',
   fontWeight: 800,
   color: '#F9A825',
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   marginBottom: '8px',
 };
 
@@ -182,7 +182,7 @@ const conceptLabelStyle: CSSProperties = {
   fontSize: '12px',
   fontWeight: 800,
   color: '#66BB6A',
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   marginBottom: '8px',
 };
 
@@ -199,7 +199,7 @@ const selectedPillStyle: CSSProperties = {
   border: '1px solid rgba(249,168,37,0.4)',
   borderRadius: '40px',
   padding: '10px 24px',
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '15px',
   fontWeight: 700,
   color: '#FFD54F',
@@ -208,7 +208,7 @@ const selectedPillStyle: CSSProperties = {
 const instructionStyle: CSSProperties = {
   textAlign: 'center',
   marginBottom: '28px',
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '15px',
   color: 'rgba(255,255,255,0.45)',
 };

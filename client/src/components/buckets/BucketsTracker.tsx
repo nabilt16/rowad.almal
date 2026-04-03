@@ -21,7 +21,7 @@ const headerStyle: CSSProperties = {
 };
 
 const titleStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '28px',
   fontWeight: 900,
   color: 'var(--gold)',
@@ -29,7 +29,7 @@ const titleStyle: CSSProperties = {
 };
 
 const allowanceStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '15px',
   color: 'var(--gray-3)',
 };
@@ -43,7 +43,7 @@ const actionBarStyle: CSSProperties = {
 };
 
 const incomeBtnStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '15px',
   fontWeight: 700,
   padding: '10px 28px',
@@ -59,7 +59,7 @@ const incomeBtnStyle: CSSProperties = {
 };
 
 const resetBtnStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '15px',
   fontWeight: 700,
   padding: '10px 28px',
@@ -105,7 +105,7 @@ const modalStyle: CSSProperties = {
 };
 
 const modalTitleStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '20px',
   fontWeight: 700,
   color: 'var(--white)',
@@ -138,7 +138,7 @@ const modalBtnsStyle: CSSProperties = {
 };
 
 const primaryBtnStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '14px',
   fontWeight: 700,
   padding: '10px 20px',
@@ -151,7 +151,7 @@ const primaryBtnStyle: CSSProperties = {
 };
 
 const cancelBtnStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '14px',
   fontWeight: 700,
   padding: '10px 20px',
@@ -172,7 +172,7 @@ const previewStyle: CSSProperties = {
   display: 'flex',
   justifyContent: 'space-around',
   fontSize: '13px',
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   color: 'var(--gray-3)',
   padding: '8px 0',
 };
@@ -183,7 +183,7 @@ const previewItemStyle = (color: string): CSSProperties => ({
 });
 
 const errorStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '14px',
   color: 'var(--red)',
   textAlign: 'center',

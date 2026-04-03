@@ -27,7 +27,7 @@ const cardStyle: CSSProperties = {
 };
 
 const titleStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '20px',
   fontWeight: 700,
   color: 'var(--white)',
@@ -64,7 +64,7 @@ const inputStyle: CSSProperties = {
   border: '2px solid rgba(255, 255, 255, 0.15)',
   background: 'rgba(255, 255, 255, 0.04)',
   color: 'var(--white)',
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '18px',
   fontWeight: 700,
   textAlign: 'center',
@@ -74,14 +74,14 @@ const inputStyle: CSSProperties = {
 };
 
 const unitLabelStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '14px',
   color: 'var(--gray-3)',
   flexShrink: 0,
 };
 
 const hintStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '13px',
   color: 'var(--sky)',
   marginTop: '8px',
@@ -93,7 +93,7 @@ const checkBtnStyle: CSSProperties = {
   borderRadius: 'var(--r)',
   background: 'linear-gradient(135deg, var(--blue), var(--blue-lt))',
   color: 'var(--white)',
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '16px',
   fontWeight: 700,
   cursor: 'pointer',
@@ -103,7 +103,7 @@ const checkBtnStyle: CSSProperties = {
 };
 
 const feedbackBarStyle: CSSProperties = {
-  fontFamily: "'Cairo', sans-serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '15px',
   padding: '12px 16px',
   borderRadius: 'var(--r)',
