@@ -59,6 +59,9 @@ const GENDER_PATTERNS: Array<[RegExp, string, string]> = [
 export function personalizeText(text: string, ctx: PersonalizeContext): string {
   let result = text;
 
+  // Replace explicit placeholder
+  result = result.replace(/\[اسم_الطالب\]/g, ctx.studentName);
+
   // Replace character names with student name
   result = result.replace(/\bأمير\b/g, ctx.studentName);
   result = result.replace(/\bسارة\b/g, ctx.studentName);

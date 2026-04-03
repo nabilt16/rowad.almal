@@ -8,6 +8,7 @@ import ConceptCard from '../components/lessons/ConceptCard';
 import QuizCard from '../components/lessons/QuizCard';
 import LoadingSpinner from '../components/shared/LoadingSpinner';
 import * as progressApi from '../api/progress';
+import { usePersonalize } from '../hooks/usePersonalize';
 
 /* ==========================================
    Section tracking types
@@ -179,6 +180,7 @@ export default function LessonPage() {
   const { number, id } = useParams<{ number: string; id: string }>();
   const gradeNumber = Number(number);
   const { currentLesson, lessonLoading, error, fetchLesson, clearCurrentLesson } = useGradeStore();
+  const personalize = usePersonalize();
 
   const [completed, setCompleted] = useState<SectionStatus>({
     story: false,
@@ -322,7 +324,7 @@ export default function LessonPage() {
 
         {/* Quiz section */}
         <QuizCard
-          question={currentLesson.quizQuestion}
+          question={personalize(currentLesson.quizQuestion)}
           choices={currentLesson.quizChoices}
           onAnswer={handleQuizAnswer}
         />
