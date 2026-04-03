@@ -1,0 +1,491 @@
+/* ===================================
+   CSS Variables (ported from original HTML)
+=================================== */
+:root {
+  --navy:     #0B1929;
+  --blue:     #1565C0;
+  --blue-lt:  #1E88E5;
+  --sky:      #64B5F6;
+  --gold:     #F9A825;
+  --gold-lt:  #FFD54F;
+  --green:    #2E7D32;
+  --green-lt: #66BB6A;
+  --red:      #C62828;
+  --cream:    #FFFBF0;
+  --white:    #FFFFFF;
+  --gray-1:   #F5F7FA;
+  --gray-2:   #E8ECF2;
+  --gray-3:   #B0BEC5;
+  --text:     #1A2535;
+  --muted:    #607D8B;
+  --r:        18px;
+  --r-lg:     26px;
+  --sh:       0 4px 24px rgba(11, 25, 41, 0.10);
+  --sh-lg:    0 12px 48px rgba(11, 25, 41, 0.18);
+}
+
+/* ===================================
+   Reset
+=================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ===================================
+   Body — RTL, Arabic fonts
+=================================== */
+body {
+  font-family: 'Noto Naskh Arabic', serif;
+  background: var(--navy);
+  color: var(--text);
+  min-height: 100vh;
+  direction: rtl;
+  line-height: 1.6;
+}
+
+/* ===================================
+   Font families
+=================================== */
+h1, h2, h3, h4, h5, h6,
+.font-heading {
+  font-family: 'Cairo', sans-serif;
+}
+
+.font-body {
+  font-family: 'Noto Naskh Arabic', serif;
+}
+
+/* ===================================
+   Links
+=================================== */
+a {
+  color: var(--sky);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ===================================
+   Buttons — base
+=================================== */
+button {
+  font-family: 'Cairo', sans-serif;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+/* ===================================
+   Inputs — base
+=================================== */
+input,
+textarea,
+select {
+  font-family: 'Noto Naskh Arabic', serif;
+  direction: rtl;
+}
+
+/* ===================================
+   Scrollbar
+=================================== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--navy);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gray-3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted);
+}
+
+/* ===================================
+   Background gradient (app-wide)
+=================================== */
+.app-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 60% 50% at 15% 20%, rgba(21, 101, 192, 0.25) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 85% 80%, rgba(249, 168, 37, 0.12) 0%, transparent 60%),
+    linear-gradient(160deg, #0B1929 0%, #0D2137 50%, #0B1929 100%);
+  pointer-events: none;
+}
+
+/* ===================================
+   Animations (from original HTML)
+=================================== */
+@keyframes popIn {
+  0%   { transform: scale(0.5); opacity: 0; }
+  70%  { transform: scale(1.15); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes shakeX {
+  0%, 100% { transform: translateX(0); }
+  20%      { transform: translateX(-8px); }
+  40%      { transform: translateX(8px); }
+  60%      { transform: translateX(-5px); }
+  80%      { transform: translateX(5px); }
+}
+
+@keyframes flyUp {
+  0%   { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(-80px) scale(1.4); opacity: 0; }
+}
+
+@keyframes spin {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* ===================================
+   Additional animations (from original HTML)
+=================================== */
+@keyframes riseUp {
+  0%   { opacity: 0; transform: translateY(0) rotate(0deg) scale(0.8); }
+  10%  { opacity: 0.18; }
+  90%  { opacity: 0.18; }
+  100% { opacity: 0; transform: translateY(-100vh) rotate(720deg) scale(1.2); }
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes panelIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes correctPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(102, 187, 106, 0); }
+  50%      { box-shadow: 0 0 0 12px rgba(102, 187, 106, 0.3); }
+}
+
+@keyframes starBurst {
+  0%   { transform: scale(0) rotate(0deg); opacity: 1; }
+  60%  { transform: scale(1.3) rotate(20deg); opacity: 1; }
+  100% { transform: scale(0) rotate(40deg); opacity: 0; }
+}
+
+@keyframes confettiFall {
+  0%   { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(120px) rotate(720deg); opacity: 0; }
+}
+
+/* Quiz choice feedback classes */
+.choice.ok  { animation: correctPulse 0.6s ease; }
+.choice.bad { animation: shakeX 0.4s ease; }
+
+/* Feedback box animation */
+.feedback-box { animation: popIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1); }
+
+/* Flying stars for celebrations */
+.fly-star {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  font-size: 28px;
+  animation: flyUp 0.9s ease forwards;
+}
+
+/* Confetti pieces */
+.confetti-piece {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  animation: confettiFall 1.2s ease forwards;
+}
+
+/* Background grid */
+.bg-grid {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background-image:
+    linear-gradient(rgba(100, 181, 246, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(100, 181, 246, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+
+/* Floating coins */
+.floating-coin {
+  position: fixed;
+  z-index: 0;
+  pointer-events: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #FFE082, #F9A825 60%, #E65100);
+  box-shadow: inset -2px -2px 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.8);
+  opacity: 0;
+  animation: riseUp linear infinite;
+}
+
+/* ===================================
+   Utility classes
+=================================== */
+.text-center {
+  text-align: center;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ===================================
+   Page transition — smooth fade
+=================================== */
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.page-transition-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* ===================================
+   Loading skeleton animation
+=================================== */
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.04) 25%,
+    rgba(255, 255, 255, 0.08) 50%,
+    rgba(255, 255, 255, 0.04) 75%
+  );
+  background-size: 800px 100%;
+  animation: shimmer 1.6s ease-in-out infinite;
+  border-radius: var(--r);
+}
+
+.skeleton-text {
+  height: 16px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+}
+
+.skeleton-title {
+  height: 24px;
+  width: 60%;
+  margin-bottom: 12px;
+  border-radius: 8px;
+}
+
+.skeleton-card {
+  height: 160px;
+  border-radius: var(--r-lg);
+}
+
+/* ===================================
+   Error state styles
+=================================== */
+.error-card {
+  background: rgba(198, 40, 40, 0.08);
+  border: 1px solid rgba(198, 40, 40, 0.25);
+  border-radius: var(--r);
+  padding: 20px 24px;
+  text-align: center;
+  direction: rtl;
+}
+
+.error-card__icon {
+  font-size: 36px;
+  margin-bottom: 8px;
+}
+
+.error-card__message {
+  font-family: 'Cairo', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--red);
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+.error-card__retry {
+  display: inline-block;
+  padding: 8px 24px;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: 'Cairo', sans-serif;
+  background: var(--red);
+  color: var(--white);
+  border: none;
+  border-radius: var(--r);
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.error-card__retry:hover {
+  opacity: 0.85;
+}
+
+/* ===================================
+   Empty state styles
+=================================== */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+  text-align: center;
+  direction: rtl;
+}
+
+.empty-state__icon {
+  font-size: 56px;
+  margin-bottom: 16px;
+  line-height: 1;
+}
+
+.empty-state__title {
+  font-family: 'Cairo', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+
+.empty-state__description {
+  font-family: 'Noto Naskh Arabic', serif;
+  font-size: 15px;
+  color: var(--gray-3);
+  max-width: 360px;
+  line-height: 1.7;
+}
+
+/* ===================================
+   RTL-specific adjustments
+=================================== */
+[dir="rtl"] input[type="email"],
+[dir="rtl"] input[type="password"] {
+  text-align: right;
+}
+
+[dir="rtl"] .ltr-number {
+  direction: ltr;
+  unicode-bidi: bidi-override;
+}
+
+/* ===================================
+   Smooth transitions
+=================================== */
+a,
+button {
+  transition: opacity 0.2s ease, transform 0.15s ease;
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+/* ===================================
+   Responsive — tablet (768px)
+=================================== */
+@media (max-width: 768px) {
+  html {
+    font-size: 15px;
+  }
+
+  .container {
+    padding: 0 14px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  .bg-grid {
+    background-size: 28px 28px;
+  }
+
+  .floating-coin {
+    width: 28px;
+    height: 28px;
+    font-size: 11px;
+  }
+}
+
+/* ===================================
+   Responsive — mobile (480px)
+=================================== */
+@media (max-width: 480px) {
+  html {
+    font-size: 14px;
+  }
+
+  .container {
+    padding: 0 10px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .floating-coin {
+    width: 22px;
+    height: 22px;
+    font-size: 9px;
+  }
+}

@@ -1,0 +1,20 @@
+node_modules/
+dist/
+.env
+*.tsbuildinfo
+.turbo/
+coverage/
+.DS_Store
+
+# Prisma
+server/prisma/migrations/**/migration_lock.toml
+
+# Vite
+client/dist/
+
+# IDE
+.vscode/
+.idea/
+
+# Content extraction output
+scripts/output/

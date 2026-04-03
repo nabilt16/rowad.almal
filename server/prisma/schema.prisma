@@ -1,0 +1,289 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ──────────────────────────────────────────────
+// Auth & Profile
+// ──────────────────────────────────────────────
+
+enum Role {
+  STUDENT
+  ADMIN
+}
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  role         Role     @default(STUDENT)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  profile        StudentProfile?
+  lessonProgress LessonProgress[]
+  activityResult ActivityResult[]
+  streak         Streak?
+  userBadges     UserBadge[]
+  bucketConfig   BucketConfig?
+  transactions   BucketTransaction[]
+}
+
+model StudentProfile {
+  id          String  @id @default(cuid())
+  userId      String  @unique
+  studentName String
+  gender      String  @default("male")
+  whoWorks    String  @default("both")
+  dadName     String  @default("")
+  dadJob      String  @default("")
+  momName     String  @default("")
+  momJob      String  @default("")
+  onboarded   Boolean @default(false)
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+// ──────────────────────────────────────────────
+// Content
+// ──────────────────────────────────────────────
+
+model Grade {
+  id     String @id @default(cuid())
+  number Int    @unique
+  nameAr String
+  slug   String @unique
+
+  units         Unit[]
+  badges        Badge[]
+  glossaryUnits GlossaryUnit[]
+  guideUnits    GuideUnit[]
+}
+
+model Unit {
+  id        String @id @default(cuid())
+  gradeId   String
+  number    Int
+  title     String
+  color     String @default("#1565C0")
+  sortOrder Int
+
+  grade   Grade    @relation(fields: [gradeId], references: [id], onDelete: Cascade)
+  lessons Lesson[]
+
+  @@unique([gradeId, number])
+}
+
+model Lesson {
+  id             String @id @default(cuid())
+  unitId         String
+  legacyId       String @unique
+  title          String
+  subtitle       String @default("")
+  bgEmoji        String @default("📚")
+  bgColor        String @default("#1565C0")
+  goal           String @default("")
+  storyTitle     String @default("")
+  storyText      String @default("")
+  conceptTitle   String @default("")
+  conceptText    String @default("")
+  conceptHtml    String @default("")
+  quizQuestion   String @default("")
+  quizChoices    Json   @default("[]")
+  activityType   String @default("")
+  activityConfig Json   @default("{}")
+  sortOrder      Int
+
+  unit           Unit             @relation(fields: [unitId], references: [id], onDelete: Cascade)
+  lessonProgress LessonProgress[]
+  activityResult ActivityResult[]
+}
+
+// ──────────────────────────────────────────────
+// Progress
+// ──────────────────────────────────────────────
+
+model LessonProgress {
+  id            String    @id @default(cuid())
+  userId        String
+  lessonId      String
+  quizCompleted Boolean   @default(false)
+  quizCorrect   Boolean   @default(false)
+  storyRead     Boolean   @default(false)
+  conceptRead   Boolean   @default(false)
+  completedAt   DateTime?
+
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  lesson Lesson @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, lessonId])
+}
+
+model ActivityResult {
+  id           String  @id @default(cuid())
+  userId       String
+  lessonId     String
+  activityType String
+  completed    Boolean @default(false)
+  score        Float?
+  answers      Json    @default("{}")
+
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  lesson Lesson @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, lessonId])
+}
+
+model Streak {
+  id             String   @id @default(cuid())
+  userId         String   @unique
+  currentStreak  Int      @default(0)
+  longestStreak  Int      @default(0)
+  lastActiveDate DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+// ──────────────────────────────────────────────
+// Badges
+// ──────────────────────────────────────────────
+
+enum BadgeRequirementType {
+  LESSON_COUNT
+  SAVINGS_STARTED
+  UNIT_COMPLETED
+  GOAL_SET
+  STREAK_REACHED
+}
+
+model Badge {
+  id               String               @id @default(cuid())
+  gradeId          String
+  badgeKey         String
+  icon             String
+  nameAr           String
+  requirementType  BadgeRequirementType
+  requirementValue Int
+  requirementKey   String?
+
+  grade      Grade       @relation(fields: [gradeId], references: [id], onDelete: Cascade)
+  userBadges UserBadge[]
+
+  @@unique([gradeId, badgeKey])
+}
+
+model UserBadge {
+  id       String   @id @default(cuid())
+  userId   String
+  badgeId  String
+  earnedAt DateTime @default(now())
+
+  user  User  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  badge Badge @relation(fields: [badgeId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, badgeId])
+}
+
+// ──────────────────────────────────────────────
+// Three Buckets
+// ──────────────────────────────────────────────
+
+model BucketConfig {
+  id            String @id @default(cuid())
+  userId        String @unique
+  allowance     Float  @default(0)
+  spendPct      Float  @default(50)
+  savePct       Float  @default(30)
+  givePct       Float  @default(20)
+  spendBalance  Float  @default(0)
+  saveBalance   Float  @default(0)
+  giveBalance   Float  @default(0)
+  saveGoalName  String @default("")
+  saveGoalPrice Float  @default(0)
+  giveGoalName  String @default("")
+  giveGoalPrice Float  @default(0)
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+enum BucketTransactionType {
+  INCOME
+  USE_SPEND
+  USE_GIVE
+}
+
+model BucketTransaction {
+  id         String                @id @default(cuid())
+  userId     String
+  type       BucketTransactionType
+  amount     Float
+  spendDelta Float                 @default(0)
+  saveDelta  Float                 @default(0)
+  giveDelta  Float                 @default(0)
+  note       String                @default("")
+  createdAt  DateTime              @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+// ──────────────────────────────────────────────
+// Glossary
+// ──────────────────────────────────────────────
+
+model GlossaryUnit {
+  id         String @id @default(cuid())
+  gradeId    String
+  unitNumber Int
+  unitName   String
+  unitColor  String @default("#1565C0")
+  icon       String @default("📖")
+
+  grade Grade          @relation(fields: [gradeId], references: [id], onDelete: Cascade)
+  terms GlossaryTerm[]
+
+  @@unique([gradeId, unitNumber])
+}
+
+model GlossaryTerm {
+  id             String @id @default(cuid())
+  glossaryUnitId String
+  termAr         String
+  termHe         String @default("")
+  definition     String
+  example        String @default("")
+
+  glossaryUnit GlossaryUnit @relation(fields: [glossaryUnitId], references: [id], onDelete: Cascade)
+}
+
+// ──────────────────────────────────────────────
+// Teacher Guide
+// ──────────────────────────────────────────────
+
+model GuideUnit {
+  id         String @id @default(cuid())
+  gradeId    String
+  unitNumber Int
+  unitName   String
+
+  grade   Grade         @relation(fields: [gradeId], references: [id], onDelete: Cascade)
+  lessons GuideLesson[]
+
+  @@unique([gradeId, unitNumber])
+}
+
+model GuideLesson {
+  id          String @id @default(cuid())
+  guideUnitId String
+  title       String
+  goal        String @default("")
+  totalTime   String @default("")
+  steps       Json   @default("[]")
+  questions   Json   @default("[]")
+  tips        Json   @default("[]")
+
+  guideUnit GuideUnit @relation(fields: [guideUnitId], references: [id], onDelete: Cascade)
+}
