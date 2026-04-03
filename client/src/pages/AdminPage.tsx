@@ -600,7 +600,7 @@ function ExpandedUserDetail({
           <h4 style={sectionTitle}>الدلاء المالية</h4>
           <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
             <BucketMini label="الإنفاق" amount={data.bucketConfig.spendBalance} color="var(--sky)" />
-            <BucketMini label="الادخار" amount={data.bucketConfig.saveBalance} color="var(--green-lt)" />
+            <BucketMini label="التوفير" amount={data.bucketConfig.saveBalance} color="var(--green-lt)" />
             <BucketMini label="العطاء" amount={data.bucketConfig.giveBalance} color="var(--gold)" />
           </div>
         </div>

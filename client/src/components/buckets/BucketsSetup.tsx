@@ -298,7 +298,7 @@ export default function BucketsSetup() {
       <header style={headerStyle}>
         <h1 style={titleStyle}>الدلاء الثلاثة</h1>
         <p style={subtitleStyle}>
-          قسّم مصروفك إلى ثلاثة دلاء: إنفاق، ادخار، وعطاء!
+          قسّم مصروفك إلى ثلاثة دلاء: إنفاق، توفير، وعطاء!
         </p>
       </header>
 
@@ -383,7 +383,7 @@ export default function BucketsSetup() {
           {/* Save slider */}
           <div style={sliderGroupStyle}>
             <div style={sliderLabelStyle(BUCKET_COLORS.save)}>
-              <span>🏦 ادخار</span>
+              <span>🏦 توفير</span>
               <span>{savePct}%</span>
             </div>
             <input
@@ -441,12 +441,12 @@ export default function BucketsSetup() {
         <div style={cardStyle}>
           <div style={stepLabelStyle}>
             <span style={stepNumStyle(true)}>3</span>
-            أهداف الادخار والعطاء
+            أهداف التوفير والعطاء
           </div>
 
           {/* Save goal */}
           <div style={inputGroupStyle}>
-            <label style={labelStyle}>🏦 هدف الادخار (اختياري)</label>
+            <label style={labelStyle}>🏦 هدف التوفير (اختياري)</label>
             <input
               type="text"
               placeholder="مثلاً: دراجة جديدة"

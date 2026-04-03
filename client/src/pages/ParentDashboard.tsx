@@ -636,7 +636,7 @@ function DashboardContent() {
               />
               <BucketCard
                 emoji="🏦"
-                label="الادخار"
+                label="التوفير"
                 balance={bucketConfig.saveBalance}
                 pct={bucketConfig.savePct}
                 color="#66BB6A"

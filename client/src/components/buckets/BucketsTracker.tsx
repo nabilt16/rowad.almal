@@ -300,7 +300,7 @@ export default function BucketsTracker() {
                   إنفاق: {(previewAmount * config.spendPct / 100).toFixed(2)} ₪
                 </span>
                 <span style={previewItemStyle(BUCKET_COLORS.save)}>
-                  ادخار: {(previewAmount * config.savePct / 100).toFixed(2)} ₪
+                  توفير: {(previewAmount * config.savePct / 100).toFixed(2)} ₪
                 </span>
                 <span style={previewItemStyle(BUCKET_COLORS.give)}>
                   عطاء: {(previewAmount * config.givePct / 100).toFixed(2)} ₪

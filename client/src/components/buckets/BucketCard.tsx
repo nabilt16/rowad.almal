@@ -12,7 +12,7 @@ interface BucketCardProps {
 
 const LABELS: Record<string, { name: string; icon: string }> = {
   spend: { name: 'إنفاق', icon: '🛒' },
-  save:  { name: 'ادخار', icon: '🏦' },
+  save:  { name: 'توفير', icon: '🏦' },
   give:  { name: 'عطاء', icon: '🤲' },
 };
 
