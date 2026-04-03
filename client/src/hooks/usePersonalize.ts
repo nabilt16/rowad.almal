@@ -24,8 +24,7 @@ export function usePersonalize() {
       // 1. profile.studentName (after onboarding)
       // 2. email username part (before @) as last resort
       const studentName =
-        profile?.studentName ||
-        (user?.email ? user.email.split('@')[0] : 'الطالب');
+        profile?.studentName || 'الطالب';
 
       return personalizeText(text, {
         studentName,
