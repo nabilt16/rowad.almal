@@ -80,7 +80,7 @@ const labelTextStyle: CSSProperties = {
 };
 
 const noteTextStyle: CSSProperties = {
-  fontFamily: "'Noto Naskh Arabic', serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '12px',
   color: 'var(--gray-3)',
 };

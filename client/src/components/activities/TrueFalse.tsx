@@ -46,7 +46,7 @@ const statementBoxStyle: CSSProperties = {
   borderRadius: 'var(--r)',
   padding: '24px',
   marginBottom: '20px',
-  fontFamily: "'Noto Naskh Arabic', serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '17px',
   color: 'var(--white)',
   lineHeight: 1.7,

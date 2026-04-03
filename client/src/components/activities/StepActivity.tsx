@@ -72,7 +72,7 @@ const stepTitleStyle: CSSProperties = {
 };
 
 const stepContentStyle: CSSProperties = {
-  fontFamily: "'Noto Naskh Arabic', serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '15px',
   color: 'var(--gray-3)',
   lineHeight: 1.7,
@@ -90,7 +90,7 @@ const inputStyle: CSSProperties = {
   border: '2px solid rgba(255, 255, 255, 0.15)',
   background: 'rgba(255, 255, 255, 0.04)',
   color: 'var(--white)',
-  fontFamily: "'Noto Naskh Arabic', serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '16px',
   outline: 'none',
   transition: 'border-color 0.3s ease',
@@ -102,7 +102,7 @@ const choiceButtonBase: CSSProperties = {
   width: '100%',
   padding: '12px 16px',
   borderRadius: 'var(--r)',
-  fontFamily: "'Noto Naskh Arabic', serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '15px',
   fontWeight: 600,
   textAlign: 'right',

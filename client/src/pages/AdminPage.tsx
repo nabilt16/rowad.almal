@@ -246,7 +246,7 @@ function UsersTab() {
 
   const cellStyle: CSSProperties = {
     padding: '12px 16px',
-    fontFamily: "'Noto Naskh Arabic', serif",
+    fontFamily: "'IBM Plex Arabic', sans-serif",
     fontSize: '14px',
     color: 'var(--white)',
     textAlign: 'right',
@@ -461,7 +461,7 @@ function ExpandedUserDetail({
   };
 
   const infoItem: CSSProperties = {
-    fontFamily: "'Noto Naskh Arabic', serif",
+    fontFamily: "'IBM Plex Arabic', sans-serif",
     fontSize: '13px',
     color: 'var(--white)',
   };

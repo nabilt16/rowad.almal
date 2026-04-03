@@ -32,7 +32,7 @@ const titleStyle: CSSProperties = {
 };
 
 const descriptionStyle: CSSProperties = {
-  fontFamily: "'Noto Naskh Arabic', serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '15px',
   color: 'var(--gray-3)',
   maxWidth: '360px',

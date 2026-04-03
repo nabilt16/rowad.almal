@@ -36,7 +36,7 @@ const backBtnStyle: CSSProperties = {
   border: '1px solid rgba(255,255,255,0.15)',
   borderRadius: '12px',
   padding: '8px 16px',
-  fontFamily: "'Noto Naskh Arabic', serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '15px',
   fontWeight: 600,
   color: 'var(--muted)',
@@ -130,7 +130,7 @@ const completionTitleStyle: CSSProperties = {
 };
 
 const completionTextStyle: CSSProperties = {
-  fontFamily: "'Noto Naskh Arabic', serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '16px',
   color: 'rgba(255,255,255,0.7)',
   marginBottom: '20px',

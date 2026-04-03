@@ -80,7 +80,7 @@ const nameStyle: CSSProperties = {
 };
 
 const subTextStyle: CSSProperties = {
-  fontFamily: "'Noto Naskh Arabic', serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '12px',
   color: 'rgba(255,255,255,0.55)',
   lineHeight: 1.5,

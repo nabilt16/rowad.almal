@@ -44,7 +44,7 @@ const navBtnBase: CSSProperties = {
   borderRadius: 'var(--r)',
   background: 'transparent',
   color: 'rgba(255,255,255,0.45)',
-  fontFamily: "'Noto Naskh Arabic', serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '14px',
   fontWeight: 700,
   cursor: 'pointer',

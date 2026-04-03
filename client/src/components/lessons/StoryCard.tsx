@@ -33,7 +33,7 @@ const textStyle: CSSProperties = {
   fontSize: '19px',
   lineHeight: 2.2,
   color: 'rgba(255,255,255,0.88)',
-  fontFamily: "'Noto Naskh Arabic', serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
 };
 
 const btnStyle: CSSProperties = {

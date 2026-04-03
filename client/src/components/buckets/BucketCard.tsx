@@ -98,7 +98,7 @@ const bucketPctLabelStyle: CSSProperties = {
 };
 
 const goalStyle: CSSProperties = {
-  fontFamily: "'Noto Naskh Arabic', serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '13px',
   color: 'var(--gray-3)',
   textAlign: 'center',
@@ -158,7 +158,7 @@ const modalTitleStyle: CSSProperties = {
 };
 
 const inputStyle: CSSProperties = {
-  fontFamily: "'Noto Naskh Arabic', serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '16px',
   padding: '10px 14px',
   borderRadius: 'var(--r)',

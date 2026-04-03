@@ -31,7 +31,7 @@ const termTitleStyle: CSSProperties = {
 };
 
 const hebrewStyle: CSSProperties = {
-  fontFamily: "'Noto Naskh Arabic', serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '15px',
   fontWeight: 400,
   color: 'var(--gray-3)',
@@ -40,7 +40,7 @@ const hebrewStyle: CSSProperties = {
 };
 
 const definitionStyle: CSSProperties = {
-  fontFamily: "'Noto Naskh Arabic', serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '16px',
   lineHeight: 2,
   color: 'rgba(255,255,255,0.85)',
@@ -67,7 +67,7 @@ const exampleLabelStyle = (accent: string): CSSProperties => ({
 });
 
 const exampleTextStyle: CSSProperties = {
-  fontFamily: "'Noto Naskh Arabic', serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '15px',
   lineHeight: 1.9,
   color: 'rgba(255,255,255,0.8)',

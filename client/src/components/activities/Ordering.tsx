@@ -44,7 +44,7 @@ const itemBase: CSSProperties = {
   background: 'rgba(255, 255, 255, 0.04)',
   border: '2px solid rgba(255, 255, 255, 0.1)',
   color: 'var(--white)',
-  fontFamily: "'Noto Naskh Arabic', serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '15px',
   lineHeight: 1.5,
   transition: 'all 0.3s ease',

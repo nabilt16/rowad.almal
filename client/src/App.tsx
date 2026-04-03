@@ -7,6 +7,7 @@ import AppShell from './components/layout/AppShell';
 import { useAuthStore } from './stores/authStore';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
+import FontPreviewPage from './pages/FontPreviewPage';
 import HomePage from './pages/HomePage';
 import GradePage from './pages/GradePage';
 import AdminPage from './pages/AdminPage';
@@ -42,6 +43,7 @@ export default function App() {
             {/* Public routes */}
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
+            <Route path="/font-preview" element={<FontPreviewPage />} />
 
             {/* Protected routes */}
             <Route element={<ProtectedRoute />}>

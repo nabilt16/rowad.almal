@@ -28,7 +28,7 @@ const backBtnStyle: CSSProperties = {
   border: '1px solid rgba(255,255,255,0.15)',
   borderRadius: '12px',
   padding: '8px 16px',
-  fontFamily: "'Noto Naskh Arabic', serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '15px',
   fontWeight: 600,
   color: 'var(--muted)',
@@ -53,7 +53,7 @@ const gradeBadgeStyle: CSSProperties = {
 };
 
 const titleStyle: CSSProperties = {
-  fontFamily: "'Noto Naskh Arabic', serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: 'clamp(30px, 7vw, 58px)',
   fontWeight: 900,
   lineHeight: 1.15,

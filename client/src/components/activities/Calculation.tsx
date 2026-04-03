@@ -44,7 +44,7 @@ const questionBlockStyle: CSSProperties = {
 };
 
 const questionTextStyle: CSSProperties = {
-  fontFamily: "'Noto Naskh Arabic', serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '16px',
   color: 'var(--white)',
   marginBottom: '14px',

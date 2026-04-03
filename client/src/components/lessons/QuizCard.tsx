@@ -23,7 +23,7 @@ const cardStyle: CSSProperties = {
 };
 
 const headingStyle: CSSProperties = {
-  fontFamily: "'Noto Naskh Arabic', serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '17px',
   fontWeight: 800,
   marginBottom: '18px',
@@ -34,7 +34,7 @@ const headingStyle: CSSProperties = {
 };
 
 const questionStyle: CSSProperties = {
-  fontFamily: "'Noto Naskh Arabic', serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '19px',
   fontWeight: 700,
   lineHeight: 2,
@@ -56,7 +56,7 @@ const choiceBaseStyle: CSSProperties = {
   borderRadius: 'var(--r)',
   background: 'rgba(255,255,255,0.09)',
   cursor: 'pointer',
-  fontFamily: "'Noto Naskh Arabic', serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '20px',
   fontWeight: 600,
   textAlign: 'right',

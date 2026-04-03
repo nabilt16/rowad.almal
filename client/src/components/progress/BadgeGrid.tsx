@@ -28,7 +28,7 @@ const headingStyle: CSSProperties = {
 };
 
 const subtitleStyle: CSSProperties = {
-  fontFamily: "'Noto Naskh Arabic', serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '14px',
   color: 'rgba(255,255,255,0.5)',
   textAlign: 'center',

@@ -51,7 +51,7 @@ const itemsPoolStyle: CSSProperties = {
 const itemChipBase: CSSProperties = {
   padding: '8px 16px',
   borderRadius: '24px',
-  fontFamily: "'Noto Naskh Arabic', serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '14px',
   fontWeight: 600,
   cursor: 'pointer',

@@ -29,7 +29,7 @@ const titleStyle: CSSProperties = {
 };
 
 const subtitleStyle: CSSProperties = {
-  fontFamily: "'Noto Naskh Arabic', serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '15px',
   color: 'var(--gray-3)',
   lineHeight: 1.7,
@@ -83,7 +83,7 @@ const labelStyle: CSSProperties = {
 };
 
 const inputStyle: CSSProperties = {
-  fontFamily: "'Noto Naskh Arabic', serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '16px',
   padding: '10px 14px',
   borderRadius: 'var(--r)',

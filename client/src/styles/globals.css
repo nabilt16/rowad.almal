@@ -43,7 +43,7 @@ html {
    Body — RTL, Arabic fonts
 =================================== */
 body {
-  font-family: 'Noto Naskh Arabic', serif;
+  font-family: 'IBM Plex Arabic', sans-serif;
   background: var(--navy);
   color: var(--text);
   min-height: 100vh;
@@ -60,7 +60,7 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .font-body {
-  font-family: 'Noto Naskh Arabic', serif;
+  font-family: 'IBM Plex Arabic', sans-serif;
 }
 
 /* ===================================
@@ -91,7 +91,7 @@ button {
 input,
 textarea,
 select {
-  font-family: 'Noto Naskh Arabic', serif;
+  font-family: 'IBM Plex Arabic', sans-serif;
   direction: rtl;
 }
 
@@ -396,7 +396,7 @@ select {
 }
 
 .empty-state__description {
-  font-family: 'Noto Naskh Arabic', serif;
+  font-family: 'IBM Plex Arabic', sans-serif;
   font-size: 15px;
   color: var(--gray-3);
   max-width: 360px;

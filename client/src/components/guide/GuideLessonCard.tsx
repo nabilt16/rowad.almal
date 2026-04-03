@@ -95,7 +95,7 @@ const goalIconStyle: CSSProperties = {
 };
 
 const goalTextStyle: CSSProperties = {
-  fontFamily: "'Noto Naskh Arabic', serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '16px',
   lineHeight: 1.9,
   color: 'rgba(255,255,255,0.88)',
@@ -138,7 +138,7 @@ const stepTitleStyle: CSSProperties = {
 };
 
 const stepDescStyle: CSSProperties = {
-  fontFamily: "'Noto Naskh Arabic', serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '14px',
   lineHeight: 1.8,
   color: 'rgba(255,255,255,0.75)',
@@ -173,7 +173,7 @@ const questionNumberStyle: CSSProperties = {
 };
 
 const questionTextStyle: CSSProperties = {
-  fontFamily: "'Noto Naskh Arabic', serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '15px',
   lineHeight: 1.9,
   color: 'rgba(255,255,255,0.85)',
@@ -190,7 +190,7 @@ const tipItemStyle: CSSProperties = {
 };
 
 const tipTextStyle: CSSProperties = {
-  fontFamily: "'Noto Naskh Arabic', serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '15px',
   lineHeight: 1.9,
   color: 'rgba(255,255,255,0.85)',

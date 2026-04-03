@@ -43,7 +43,7 @@ const choiceButtonBase: CSSProperties = {
   width: '100%',
   padding: '16px 20px',
   borderRadius: 'var(--r)',
-  fontFamily: "'Noto Naskh Arabic', serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '16px',
   fontWeight: 600,
   textAlign: 'right',

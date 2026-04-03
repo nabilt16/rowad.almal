@@ -78,7 +78,7 @@ const inputStyle: CSSProperties = {
   direction: 'rtl',
   marginBottom: '16px',
   transition: 'border-color 0.2s',
-  fontFamily: "'Noto Naskh Arabic', serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
 };
 
 const fieldRow: CSSProperties = {

@@ -98,7 +98,7 @@ const inputStyle: CSSProperties = {
   direction: 'rtl',
   marginBottom: '18px',
   transition: 'border-color 0.2s',
-  fontFamily: "'Noto Naskh Arabic', serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
 };
 
 const genderBtnContainer: CSSProperties = {
@@ -229,7 +229,7 @@ const welcomeNameStyle: CSSProperties = {
 };
 
 const welcomeSubtitle: CSSProperties = {
-  fontFamily: "'Noto Naskh Arabic', serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '16px',
   color: 'var(--muted)',
   marginBottom: '32px',

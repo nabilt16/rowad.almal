@@ -113,7 +113,7 @@ const modalTitleStyle: CSSProperties = {
 };
 
 const modalDescStyle: CSSProperties = {
-  fontFamily: "'Noto Naskh Arabic', serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '14px',
   color: 'var(--gray-3)',
   textAlign: 'center',
@@ -121,7 +121,7 @@ const modalDescStyle: CSSProperties = {
 };
 
 const inputStyle: CSSProperties = {
-  fontFamily: "'Noto Naskh Arabic', serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '16px',
   padding: '10px 14px',
   borderRadius: 'var(--r)',

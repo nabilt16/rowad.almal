@@ -31,7 +31,7 @@ const emojiBackdropStyle: CSSProperties = {
 };
 
 const titleStyle: CSSProperties = {
-  fontFamily: "'Noto Naskh Arabic', serif",
+  fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '22px',
   fontWeight: 900,
   marginBottom: '8px',
