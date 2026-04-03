@@ -62,15 +62,15 @@ const goalContainerStyle: CSSProperties = {
 
 const goalLabelStyle: CSSProperties = {
   fontFamily: "'Cairo', sans-serif",
-  fontSize: '12px',
+  fontSize: '16px',
   fontWeight: 800,
   color: 'rgba(255,255,255,0.7)',
   flexShrink: 0,
 };
 
 const goalTextStyle: CSSProperties = {
-  fontSize: '15px',
-  lineHeight: 1.6,
+  fontSize: '21px',
+  lineHeight: 1.7,
   color: 'rgba(255,255,255,0.9)',
 };
 
