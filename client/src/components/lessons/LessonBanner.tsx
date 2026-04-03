@@ -94,7 +94,7 @@ export default function LessonBanner({
       {goal && (
         <div style={goalContainerStyle}>
           <span style={goalLabelStyle}>
-            \uD83C\uDFAF الهدف:
+            {'\uD83C\uDFAF'} الهدف:
           </span>
           <span style={goalTextStyle}>{goal}</span>
         </div>
