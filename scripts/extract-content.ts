@@ -136,6 +136,8 @@ const GRADE4_ACTIVITY_MAP: Record<string, string> = {
 /**
  * Extract the inner HTML of a <div id="..."> element from raw HTML.
  * Used to resolve htmlId references in lesson concept data.
+ * Also inlines coin and bill base64 images that were originally
+ * populated by JavaScript in the source HTML.
  */
 function extractDivById(html: string, id: string): string {
   // Match opening tag with the given id attribute
@@ -162,7 +164,45 @@ function extractDivById(html: string, id: string): string {
       i++;
     }
   }
-  return html.slice(start, i).trim();
+  let inner = html.slice(start, i).trim();
+
+  // --- Inline coin images (data-coin="xxx" → <img id="img-xxx" src="data:..."> ) ---
+  inner = inner.replace(/(<img[^>]+)src=""([^>]+data-coin="([^"]+)")/g, (full, pre, post, coinName) => {
+    const coinImgRegex = new RegExp(`<img[^>]+id=["']img-${coinName}["'][^>]+src=["'](data:[^"']+)["']`, "i");
+    const coinMatch = coinImgRegex.exec(html);
+    if (coinMatch) return `${pre}src="${coinMatch[1]}"${post}`;
+    return full;
+  });
+  // Handle the case where data-coin comes before src=""
+  inner = inner.replace(/(<img[^>]+data-coin="([^"]+)"[^>]+)src=""([^>]*>)/g, (full, pre, coinName, post) => {
+    if (pre.includes(`src="`)) return full; // already filled
+    const coinImgRegex = new RegExp(`<img[^>]+id=["']img-${coinName}["'][^>]+src=["'](data:[^"']+)["']`, "i");
+    const coinMatch = coinImgRegex.exec(html);
+    if (coinMatch) return `${pre}src="${coinMatch[1]}"${post}`;
+    return full;
+  });
+
+  // --- Inline bill images (data-note="xxx" → _fronts['xxx'] = "data:...") ---
+  const frontsMatch = /var\s+_fronts\s*=\s*(\{[\s\S]*?\});/.exec(html);
+  if (frontsMatch) {
+    let frontsObj: Record<string, string> = {};
+    try {
+      // eslint-disable-next-line no-eval
+      frontsObj = eval(`(${frontsMatch[1]})`);
+    } catch {}
+
+    inner = inner.replace(/(<img[^>]+)src=""([^>]+data-note="([^"]+)")/g, (full, pre, post, noteId) => {
+      if (frontsObj[noteId]) return `${pre}src="${frontsObj[noteId]}"${post}`;
+      return full;
+    });
+    inner = inner.replace(/(<img[^>]+data-note="([^"]+)"[^>]+)src=""([^>]*>)/g, (full, pre, noteId, post) => {
+      if (pre.includes(`src="`)) return full;
+      if (frontsObj[noteId]) return `${pre}src="${frontsObj[noteId]}"${post}`;
+      return full;
+    });
+  }
+
+  return inner;
 }
 
 /**
