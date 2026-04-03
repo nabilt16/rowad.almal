@@ -16,20 +16,26 @@ import { personalizeText } from '../utils/personalize';
  */
 export function usePersonalize() {
   const profile = useAuthStore((state) => state.profile);
+  const user    = useAuthStore((state) => state.user);
 
   return useCallback(
     (text: string): string => {
-      if (!profile) return text;
+      // Derive the best available name:
+      // 1. profile.studentName (after onboarding)
+      // 2. email username part (before @) as last resort
+      const studentName =
+        profile?.studentName ||
+        (user?.email ? user.email.split('@')[0] : 'الطالب');
 
       return personalizeText(text, {
-        studentName: profile.studentName,
-        gender: profile.gender,
-        dadName: profile.dadName,
-        momName: profile.momName,
-        dadJob: profile.dadJob,
-        momJob: profile.momJob,
+        studentName,
+        gender:  profile?.gender  ?? 'male',
+        dadName: profile?.dadName ?? '',
+        momName: profile?.momName ?? '',
+        dadJob:  profile?.dadJob  ?? '',
+        momJob:  profile?.momJob  ?? '',
       });
     },
-    [profile],
+    [profile, user],
   );
 }
