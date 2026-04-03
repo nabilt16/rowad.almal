@@ -1,4 +1,4 @@
-import { useState, type CSSProperties } from 'react';
+import { useState, useEffect, useRef, type CSSProperties } from 'react';
 
 interface ConceptCardProps {
   title: string;
@@ -65,6 +65,43 @@ const btnDoneStyle: CSSProperties = {
 
 export default function ConceptCard({ title, text, html, onRead }: ConceptCardProps) {
   const [read, setRead] = useState(false);
+  const htmlRef = useRef<HTMLDivElement>(null);
+
+  // Wire up bill-flip on any img[data-note] rendered via dangerouslySetInnerHTML
+  useEffect(() => {
+    if (!htmlRef.current) return;
+    const imgs = htmlRef.current.querySelectorAll<HTMLImageElement>('img[data-note]');
+    const handlers: Array<{ el: HTMLElement; fn: () => void }> = [];
+
+    imgs.forEach((img) => {
+      const front = img.src;
+      const back  = img.getAttribute('data-note-back') || '';
+      if (!back) return;
+
+      let showingFront = true;
+      // The clickable parent is the .nl-row div wrapping the img
+      const card = img.closest('[onclick]') as HTMLElement | null ?? img.parentElement as HTMLElement;
+
+      const flip = () => {
+        img.style.opacity = '0';
+        img.style.transition = 'opacity 0.15s';
+        setTimeout(() => {
+          showingFront = !showingFront;
+          img.src = showingFront ? front : back;
+          img.style.opacity = '1';
+        }, 150);
+      };
+
+      card.style.cursor = 'pointer';
+      card.removeAttribute('onclick'); // prevent stale JS handler errors
+      card.addEventListener('click', flip);
+      handlers.push({ el: card, fn: flip });
+    });
+
+    return () => {
+      handlers.forEach(({ el, fn }) => el.removeEventListener('click', fn));
+    };
+  }, [html]);
 
   const handleRead = () => {
     if (!read) {
@@ -82,6 +119,7 @@ export default function ConceptCard({ title, text, html, onRead }: ConceptCardPr
 
       {html ? (
         <div
+          ref={htmlRef}
           style={htmlContainerStyle}
           dangerouslySetInnerHTML={{ __html: html }}
         />

@@ -182,24 +182,28 @@ function extractDivById(html: string, id: string): string {
     return full;
   });
 
-  // --- Inline bill images (data-note="xxx" → _fronts['xxx'] = "data:...") ---
+  // --- Inline bill images (data-note="xxx" → _fronts / _backs) ---
+  // Also stores data-note-back attribute so ConceptCard can flip on click.
   const frontsMatch = /var\s+_fronts\s*=\s*(\{[\s\S]*?\});/.exec(html);
+  const backsMatch  = /var\s+_backs\s*=\s*(\{[\s\S]*?\});/.exec(html);
   if (frontsMatch) {
     let frontsObj: Record<string, string> = {};
-    try {
-      // eslint-disable-next-line no-eval
-      frontsObj = eval(`(${frontsMatch[1]})`);
-    } catch {}
+    let backsObj: Record<string, string> = {};
+    try { frontsObj = eval(`(${frontsMatch[1]})`); } catch {}
+    try { if (backsMatch) backsObj = eval(`(${backsMatch[1]})`); } catch {}
 
-    inner = inner.replace(/(<img[^>]+)src=""([^>]+data-note="([^"]+)")/g, (full, pre, post, noteId) => {
-      if (frontsObj[noteId]) return `${pre}src="${frontsObj[noteId]}"${post}`;
-      return full;
-    });
-    inner = inner.replace(/(<img[^>]+data-note="([^"]+)"[^>]+)src=""([^>]*>)/g, (full, pre, noteId, post) => {
-      if (pre.includes(`src="`)) return full;
-      if (frontsObj[noteId]) return `${pre}src="${frontsObj[noteId]}"${post}`;
-      return full;
-    });
+    const inlineNote = (full: string, pre: string, noteId: string, post: string) => {
+      const front = frontsObj[noteId];
+      const back  = backsObj[noteId];
+      if (!front) return full;
+      const backAttr = back ? ` data-note-back="${back}"` : "";
+      return `${pre}src="${front}"${backAttr}${post}`;
+    };
+
+    inner = inner.replace(/(<img[^>]+)src=""([^>]+data-note="([^"]+)"[^>]*>)/g,
+      (full, pre, post, noteId) => inlineNote(full, pre, noteId, post));
+    inner = inner.replace(/(<img[^>]+data-note="([^"]+)"[^>]+)src=""([^>]*>)/g,
+      (full, pre, noteId, post) => pre.includes('src="data:') ? full : inlineNote(full, pre, noteId, post));
   }
 
   return inner;
