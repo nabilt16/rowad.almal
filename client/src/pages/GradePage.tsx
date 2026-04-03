@@ -80,19 +80,20 @@ const lessonItemStyle: CSSProperties = {
   display: 'flex',
   alignItems: 'center',
   gap: '12px',
-  padding: '12px 16px',
+  padding: '14px 18px',
   background: 'rgba(255,255,255,0.05)',
   borderRadius: 'var(--r)',
   color: 'var(--white)',
   textDecoration: 'none',
   transition: 'background 0.2s',
   fontFamily: "'IBM Plex Arabic', sans-serif",
-  fontSize: '15px',
+  fontSize: '20px',
+  fontWeight: 500,
 };
 
 const lessonEmojiStyle: CSSProperties = {
-  fontSize: '24px',
-  width: '36px',
+  fontSize: '28px',
+  width: '40px',
   textAlign: 'center',
 };
 
