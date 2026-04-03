@@ -1,7 +1,11 @@
 export interface GuideStep {
-  title: string;
-  duration: string;
-  description: string;
+  text: string;
+  time: string;
+}
+
+export interface GuideTip {
+  icon: string;
+  text: string;
 }
 
 export interface GuideLesson {
@@ -12,7 +16,7 @@ export interface GuideLesson {
   totalTime: string;
   steps: GuideStep[];
   questions: string[];
-  tips: string[];
+  tips: GuideTip[];
 }
 
 export interface GuideUnit {

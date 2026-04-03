@@ -1,5 +1,5 @@
 import { useState, type CSSProperties } from 'react';
-import type { GuideStep } from '@rowad/shared';
+import type { GuideStep, GuideTip } from '@rowad/shared';
 
 interface GuideLessonCardProps {
   title: string;
@@ -7,7 +7,7 @@ interface GuideLessonCardProps {
   totalTime: string;
   steps: GuideStep[];
   questions: string[];
-  tips: string[];
+  tips: GuideTip[];
   accentColor?: string;
 }
 
@@ -247,14 +247,11 @@ export default function GuideLessonCard({
                 <div key={idx} style={stepItemStyle}>
                   <span style={stepNumberStyle(accentColor)}>{idx + 1}</span>
                   <div style={stepContentStyle}>
-                    <div style={stepTitleStyle}>{step.title}</div>
-                    {step.description && (
-                      <div style={stepDescStyle}>{step.description}</div>
-                    )}
+                    <div style={stepDescStyle}>{step.text}</div>
                   </div>
-                  {step.duration && (
+                  {step.time && (
                     <span style={stepTimeChipStyle}>
-                      {'\u23F0'} {step.duration}
+                      {'\u23F0'} {step.time}
                     </span>
                   )}
                 </div>
@@ -287,8 +284,8 @@ export default function GuideLessonCard({
               </div>
               {tips.map((tip, idx) => (
                 <div key={idx} style={tipItemStyle}>
-                  <span style={{ fontSize: '16px', flexShrink: 0 }}>{'\uD83D\uDCA1'}</span>
-                  <span style={tipTextStyle}>{tip}</span>
+                  <span style={{ fontSize: '16px', flexShrink: 0 }}>{tip.icon || '\uD83D\uDCA1'}</span>
+                  <span style={tipTextStyle}>{tip.text}</span>
                 </div>
               ))}
             </div>
