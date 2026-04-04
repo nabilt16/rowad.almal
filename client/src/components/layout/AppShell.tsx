@@ -35,11 +35,10 @@ export default function AppShell({ children }: AppShellProps) {
   const profile = useAuthStore((s) => s.profile);
   const [onboardingDismissed, setOnboardingDismissed] = useState(false);
 
-  /* Show onboarding overlay if user is logged in but profile is NOT onboarded */
+  /* Show onboarding overlay if user is logged in but has no profile or profile is NOT onboarded */
   const showOnboarding =
     user !== null &&
-    profile !== null &&
-    profile.onboarded === false &&
+    (profile === null || profile.onboarded === false) &&
     !onboardingDismissed;
 
   return (
