@@ -587,7 +587,7 @@ function DashboardContent() {
 
       {/* Bucket Savings */}
       <div style={glassCardStyle}>
-        <h3 style={sectionTitleStyle}>الدلاء المالية</h3>
+        <h3 style={sectionTitleStyle}>قجة التوفير</h3>
         {!bucketConfig ? (
           <p
             style={{
@@ -598,7 +598,7 @@ function DashboardContent() {
               padding: '20px 0',
             }}
           >
-            لم يتم إعداد الدلاء المالية بعد
+            لم يتم إعداد قجة التوفير بعد
           </p>
         ) : (
           <div>

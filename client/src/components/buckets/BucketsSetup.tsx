@@ -296,9 +296,9 @@ export default function BucketsSetup() {
   return (
     <div style={containerStyle}>
       <header style={headerStyle}>
-        <h1 style={titleStyle}>الدلاء الثلاثة</h1>
+        <h1 style={titleStyle}>القجج الثلاث</h1>
         <p style={subtitleStyle}>
-          قسّم مصروفك إلى ثلاثة دلاء: إنفاق، توفير، وعطاء!
+          قسّم مصروفك إلى ثلاث قجج: إنفاق، توفير، وعطاء!
         </p>
       </header>
 

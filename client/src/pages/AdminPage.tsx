@@ -597,7 +597,7 @@ function ExpandedUserDetail({
       {/* Buckets */}
       {data.bucketConfig && (
         <div style={{ padding: '0 24px 20px' }}>
-          <h4 style={sectionTitle}>الدلاء المالية</h4>
+          <h4 style={sectionTitle}>قجة التوفير</h4>
           <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
             <BucketMini label="الإنفاق" amount={data.bucketConfig.spendBalance} color="var(--sky)" />
             <BucketMini label="التوفير" amount={data.bucketConfig.saveBalance} color="var(--green-lt)" />
@@ -686,7 +686,7 @@ function StatsTab() {
     {
       icon: '🪣',
       value: stats.activeBuckets,
-      label: 'إعدادات الدلاء',
+      label: 'إعدادات القجة',
       color: '#4DD0E1',
       bgColor: 'rgba(77,208,225,0.12)',
     },

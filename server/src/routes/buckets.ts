@@ -97,7 +97,7 @@ router.post(
       });
 
       if (!config) {
-        throw new AppError(400, 'يرجى إعداد الدلاء أولاً');
+        throw new AppError(400, 'يرجى إعداد القجة أولاً');
       }
 
       const spendDelta = (amount * config.spendPct) / 100;
@@ -146,7 +146,7 @@ router.post(
       });
 
       if (!config) {
-        throw new AppError(400, 'يرجى إعداد الدلاء أولاً');
+        throw new AppError(400, 'يرجى إعداد القجة أولاً');
       }
 
       const balanceField = type === 'USE_SPEND' ? 'spendBalance' : 'giveBalance';
@@ -201,7 +201,7 @@ router.delete(
         }),
       ]);
 
-      res.json({ message: 'تم إعادة تعيين الدلاء بنجاح' });
+      res.json({ message: 'تم إعادة تعيين القجج بنجاح' });
     } catch (err) {
       next(err);
     }

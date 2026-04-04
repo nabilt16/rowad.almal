@@ -47,7 +47,7 @@ export default function BucketsPage() {
         </Link>
 
         {loading && !config && (
-          <LoadingSpinner text="جارٍ تحميل الدلاء..." />
+          <LoadingSpinner text="جارٍ تحميل القجة..." />
         )}
 
         {error && !config && !loading && (

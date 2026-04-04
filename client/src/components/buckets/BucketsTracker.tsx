@@ -227,7 +227,7 @@ export default function BucketsTracker() {
   return (
     <div style={containerStyle}>
       <header style={headerStyle}>
-        <h1 style={titleStyle}>الدلاء الثلاثة</h1>
+        <h1 style={titleStyle}>القجج الثلاث</h1>
         <div style={allowanceStyle}>
           المصروف الشهري: {config.allowance} ₪
         </div>
@@ -283,7 +283,7 @@ export default function BucketsTracker() {
           <div style={modalStyle} onClick={(e) => e.stopPropagation()}>
             <div style={modalTitleStyle}>💰 إضافة دخل</div>
             <div style={modalDescStyle}>
-              سيتم توزيع المبلغ تلقائيًا حسب نسب الدلاء
+              سيتم توزيع المبلغ تلقائيًا حسب نسب القجج
             </div>
             <input
               type="number"
@@ -329,7 +329,7 @@ export default function BucketsTracker() {
           <div style={modalStyle} onClick={(e) => e.stopPropagation()}>
             <div style={modalTitleStyle}>🔄 إعادة تعيين</div>
             <div style={modalDescStyle}>
-              هل أنت متأكد؟ سيتم حذف جميع الدلاء والمعاملات.
+              هل أنت متأكد؟ سيتم حذف جميع القجج والمعاملات.
               <br />
               لا يمكن التراجع عن هذا الإجراء.
             </div>

@@ -33,7 +33,7 @@ export const useBucketStore = create<BucketState>((set, get) => ({
         loading: false,
       });
     } catch {
-      set({ loading: false, error: 'فشل تحميل الدلاء' });
+      set({ loading: false, error: 'فشل تحميل القجة' });
     }
   },
 
@@ -43,7 +43,7 @@ export const useBucketStore = create<BucketState>((set, get) => ({
       const config = await bucketsApi.setupBuckets(data);
       set({ config, loading: false });
     } catch {
-      set({ loading: false, error: 'فشل إعداد الدلاء' });
+      set({ loading: false, error: 'فشل إعداد القجة' });
     }
   },
 
@@ -65,7 +65,7 @@ export const useBucketStore = create<BucketState>((set, get) => ({
       // Re-fetch to get updated balances and transactions
       await get().fetchBuckets();
     } catch {
-      set({ loading: false, error: 'فشل استخدام الدلو' });
+      set({ loading: false, error: 'فشل استخدام القجة' });
     }
   },
 
@@ -75,7 +75,7 @@ export const useBucketStore = create<BucketState>((set, get) => ({
       await bucketsApi.resetBuckets();
       set({ config: null, transactions: [], loading: false });
     } catch {
-      set({ loading: false, error: 'فشل إعادة تعيين الدلاء' });
+      set({ loading: false, error: 'فشل إعادة تعيين القجج' });
     }
   },
 
