@@ -1,5 +1,6 @@
 import { useState, type CSSProperties } from 'react';
 import { useBucketStore } from '../../stores/bucketStore';
+import SavingBoxIcon from '../shared/SavingBoxIcon';
 
 const BUCKET_COLORS = {
   spend: '#FF9800',
@@ -383,7 +384,7 @@ export default function BucketsSetup() {
           {/* Save slider */}
           <div style={sliderGroupStyle}>
             <div style={sliderLabelStyle(BUCKET_COLORS.save)}>
-              <span>🏦 توفير</span>
+              <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}><SavingBoxIcon size={20} /> توفير</span>
               <span>{savePct}%</span>
             </div>
             <input
@@ -446,7 +447,7 @@ export default function BucketsSetup() {
 
           {/* Save goal */}
           <div style={inputGroupStyle}>
-            <label style={labelStyle}>🏦 هدف التوفير (اختياري)</label>
+            <label style={{ ...labelStyle, display: 'flex', alignItems: 'center', gap: '6px' }}><SavingBoxIcon size={18} /> هدف التوفير (اختياري)</label>
             <input
               type="text"
               placeholder="مثلاً: دراجة جديدة"

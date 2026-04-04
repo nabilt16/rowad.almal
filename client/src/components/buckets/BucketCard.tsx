@@ -1,4 +1,5 @@
 import { useState, type CSSProperties } from 'react';
+import SavingBoxIcon from '../shared/SavingBoxIcon';
 
 interface BucketCardProps {
   type: 'spend' | 'save' | 'give';
@@ -10,9 +11,9 @@ interface BucketCardProps {
   onUse: (amount: number, note: string) => void;
 }
 
-const LABELS: Record<string, { name: string; icon: string }> = {
+const LABELS: Record<string, { name: string; icon: string | null }> = {
   spend: { name: 'إنفاق', icon: '🛒' },
-  save:  { name: 'توفير', icon: '🏦' },
+  save:  { name: 'توفير', icon: null },
   give:  { name: 'عطاء', icon: '🤲' },
 };
 
@@ -219,7 +220,9 @@ export default function BucketCard({
   return (
     <>
       <div style={cardStyle(color)}>
-        <div style={iconWrapStyle}>{label.icon}</div>
+        <div style={iconWrapStyle}>
+          {label.icon === null ? <SavingBoxIcon size={48} /> : label.icon}
+        </div>
         <div style={labelStyle}>{label.name}</div>
         <div style={pctBadgeStyle(color)}>{percentage}%</div>
         <div style={balanceStyle}>{balance.toFixed(2)} ₪</div>

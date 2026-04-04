@@ -4,6 +4,7 @@ import { useAuthStore } from '../stores/authStore';
 import { GRADE_CONFIG } from '@rowad/shared';
 import * as adminApi from '../api/admin';
 import type { AdminUser, AdminUserDetail, AdminStats } from '../api/admin';
+import SavingBoxIcon from '../components/shared/SavingBoxIcon';
 
 /* ============================================================
    Tabs
@@ -649,7 +650,7 @@ function StatsTab() {
   if (!stats) return null;
 
   const statCards: {
-    icon: string;
+    icon: string | null;
     value: number;
     label: string;
     color: string;
@@ -684,7 +685,7 @@ function StatsTab() {
       bgColor: 'rgba(206,147,216,0.12)',
     },
     {
-      icon: '🪣',
+      icon: null,
       value: stats.activeBuckets,
       label: 'إعدادات القجة',
       color: '#4DD0E1',
@@ -712,7 +713,12 @@ function StatsTab() {
               border: `1px solid ${card.color}22`,
             }}
           >
-            <div style={{ fontSize: '40px', marginBottom: '12px' }}>{card.icon}</div>
+            <div style={{ marginBottom: '12px', display: 'flex', justifyContent: 'center' }}>
+              {card.icon === null
+                ? <SavingBoxIcon size={52} />
+                : <span style={{ fontSize: '40px' }}>{card.icon}</span>
+              }
+            </div>
             <div
               style={{
                 fontFamily: "'IBM Plex Arabic', sans-serif",
