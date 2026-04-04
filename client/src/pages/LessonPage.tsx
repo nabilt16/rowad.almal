@@ -189,6 +189,7 @@ export default function LessonPage() {
   });
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     if (id) {
       fetchLesson(id);
     }
