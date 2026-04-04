@@ -188,12 +188,17 @@ export default function LessonPage() {
     quiz: false,
   });
 
+  // Reset completion state every time the lesson changes
   useEffect(() => {
+    setCompleted({ story: false, concept: false, quiz: false });
     window.scrollTo(0, 0);
     if (id) fetchLesson(id);
-    if (gradeNumber && !currentGrade) fetchGrade(gradeNumber);
     return () => clearCurrentLesson();
-  }, [id, gradeNumber, fetchLesson, fetchGrade, clearCurrentLesson, currentGrade]);
+  }, [id, fetchLesson, clearCurrentLesson]);
+
+  useEffect(() => {
+    if (gradeNumber && !currentGrade) fetchGrade(gradeNumber);
+  }, [gradeNumber, currentGrade, fetchGrade]);
 
   // Find the next lesson across all units of this grade
   const nextLesson = useMemo(() => {
