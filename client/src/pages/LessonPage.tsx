@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback, type CSSProperties } from 'react';
+import { useEffect, useState, useCallback, useMemo, type CSSProperties } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useGradeStore } from '../stores/gradeStore';
 import AppShell from '../components/layout/AppShell';
@@ -179,7 +179,7 @@ const SECTIONS: { key: SectionKey; label: string; icon: string }[] = [
 export default function LessonPage() {
   const { number, id } = useParams<{ number: string; id: string }>();
   const gradeNumber = Number(number);
-  const { currentLesson, lessonLoading, error, fetchLesson, clearCurrentLesson } = useGradeStore();
+  const { currentGrade, currentLesson, lessonLoading, error, fetchLesson, fetchGrade, clearCurrentLesson } = useGradeStore();
   const personalize = usePersonalize();
 
   const [completed, setCompleted] = useState<SectionStatus>({
@@ -190,11 +190,18 @@ export default function LessonPage() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    if (id) {
-      fetchLesson(id);
-    }
+    if (id) fetchLesson(id);
+    if (gradeNumber && !currentGrade) fetchGrade(gradeNumber);
     return () => clearCurrentLesson();
-  }, [id, fetchLesson, clearCurrentLesson]);
+  }, [id, gradeNumber, fetchLesson, fetchGrade, clearCurrentLesson, currentGrade]);
+
+  // Find the next lesson across all units of this grade
+  const nextLesson = useMemo(() => {
+    if (!currentGrade || !id) return null;
+    const allLessons = currentGrade.units.flatMap((u) => u.lessons);
+    const idx = allLessons.findIndex((l) => l.id === id);
+    return idx !== -1 && idx < allLessons.length - 1 ? allLessons[idx + 1] : null;
+  }, [currentGrade, id]);
 
   /* ---------- Section completion handlers ---------- */
   const markDone = useCallback((section: SectionKey) => {
@@ -342,10 +349,29 @@ export default function LessonPage() {
                 <br />
                 استمر في رحلة التعلم المالي!
               </p>
-              <Link to={`/grade/${gradeNumber}`} style={nextBtnStyle}>
-                <span>&#9664;</span>
-                العودة لقائمة الدروس
-              </Link>
+              <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
+                {nextLesson && (
+                  <Link
+                    to={`/grade/${gradeNumber}/lesson/${nextLesson.id}`}
+                    style={nextBtnStyle}
+                    onClick={() => window.scrollTo(0, 0)}
+                  >
+                    {nextLesson.bgEmoji || '\uD83D\uDCD6'} {nextLesson.title}
+                    <span style={{ fontSize: '13px', marginRight: '4px' }}>&#9664;</span>
+                  </Link>
+                )}
+                <Link
+                  to={`/grade/${gradeNumber}`}
+                  style={{
+                    ...nextBtnStyle,
+                    background: 'rgba(255,255,255,0.12)',
+                    border: '1px solid rgba(255,255,255,0.2)',
+                  }}
+                >
+                  <span>&#9664;</span>
+                  قائمة الدروس
+                </Link>
+              </div>
             </div>
           </>
         )}
