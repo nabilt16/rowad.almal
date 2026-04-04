@@ -1,4 +1,4 @@
-import { useState, type CSSProperties } from 'react';
+import { useState, useMemo, type CSSProperties } from 'react';
 import { playCorrect, playWrong, playClick } from '../../utils/audio';
 import { confettiBurst, flyStars } from '../../utils/confetti';
 
@@ -138,11 +138,22 @@ export default function QuizCard({ question, choices, onAnswer }: QuizCardProps)
   const [isCorrect, setIsCorrect] = useState(false);
   const [showFeedback, setShowFeedback] = useState(false);
 
+  // Shuffle choices once per question (stable across re-renders)
+  const shuffled = useMemo(() => {
+    const arr = choices.map((c, i) => ({ ...c, origIndex: i }));
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [question]);
+
   const handleChoice = (index: number) => {
     if (locked || showFeedback) return;
 
     playClick();
-    const correct = choices[index].correct;
+    const correct = shuffled[index].correct;
     setSelectedIndex(index);
     setIsCorrect(correct);
     setShowFeedback(true);
@@ -183,9 +194,9 @@ export default function QuizCard({ question, choices, onAnswer }: QuizCardProps)
       <p style={questionStyle}>{question}</p>
 
       <div style={choicesContainerStyle}>
-        {choices.map((choice, i) => (
+        {shuffled.map((choice, i) => (
           <button
-            key={i}
+            key={choice.origIndex}
             className={`choice ${getState(i) === 'ok' ? 'ok' : getState(i) === 'bad' ? 'bad' : ''}`}
             style={getChoiceStyle(getState(i))}
             onClick={() => handleChoice(i)}
