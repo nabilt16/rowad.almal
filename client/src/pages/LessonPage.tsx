@@ -337,7 +337,7 @@ export default function LessonPage() {
           onAnswer={handleQuizAnswer}
         />
 
-        {/* Completion banner */}
+        {/* Celebration banner — appears only when fully done */}
         {allDone && (
           <>
             <div style={sectionDividerStyle} />
@@ -349,32 +349,62 @@ export default function LessonPage() {
                 <br />
                 استمر في رحلة التعلم المالي!
               </p>
-              <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
-                {nextLesson && (
-                  <Link
-                    to={`/grade/${gradeNumber}/lesson/${nextLesson.id}`}
-                    style={nextBtnStyle}
-                    onClick={() => window.scrollTo(0, 0)}
-                  >
-                    {nextLesson.bgEmoji || '\uD83D\uDCD6'} {nextLesson.title}
-                    <span style={{ fontSize: '13px', marginRight: '4px' }}>&#9664;</span>
-                  </Link>
-                )}
-                <Link
-                  to={`/grade/${gradeNumber}`}
-                  style={{
-                    ...nextBtnStyle,
-                    background: 'rgba(255,255,255,0.12)',
-                    border: '1px solid rgba(255,255,255,0.2)',
-                  }}
-                >
-                  <span>&#9664;</span>
-                  قائمة الدروس
-                </Link>
-              </div>
             </div>
           </>
         )}
+
+        {/* Navigation bar — always visible, enabled only when all done */}
+        <div style={sectionDividerStyle} />
+        <div style={{
+          display: 'flex',
+          gap: '12px',
+          justifyContent: 'center',
+          flexWrap: 'wrap',
+          padding: '8px 0 24px',
+        }}>
+          {nextLesson && (
+            allDone ? (
+              <Link
+                to={`/grade/${gradeNumber}/lesson/${nextLesson.id}`}
+                style={nextBtnStyle}
+                onClick={() => window.scrollTo(0, 0)}
+              >
+                {nextLesson.bgEmoji || '\uD83D\uDCD6'} {nextLesson.title}
+                <span style={{ fontSize: '13px', marginRight: '4px' }}>&#9664;</span>
+              </Link>
+            ) : (
+              <div style={{
+                ...nextBtnStyle,
+                background: 'rgba(255,255,255,0.08)',
+                color: 'rgba(255,255,255,0.3)',
+                border: '1px solid rgba(255,255,255,0.1)',
+                cursor: 'not-allowed',
+                flexDirection: 'column',
+                gap: '4px',
+                padding: '12px 24px',
+              }}>
+                <span style={{ fontSize: '13px' }}>
+                  {nextLesson.bgEmoji || '\uD83D\uDCD6'} {nextLesson.title}
+                </span>
+                <span style={{ fontSize: '11px', opacity: 0.6 }}>
+                  {'\uD83D\uDD12'} أكمل الدرس أولاً ({completedCount}/{SECTIONS.length})
+                </span>
+              </div>
+            )
+          )}
+          <Link
+            to={`/grade/${gradeNumber}`}
+            style={{
+              ...nextBtnStyle,
+              background: 'rgba(255,255,255,0.10)',
+              border: '1px solid rgba(255,255,255,0.15)',
+              color: 'rgba(255,255,255,0.7)',
+            }}
+          >
+            <span>&#9664;</span>
+            قائمة الدروس
+          </Link>
+        </div>
       </div>
     </AppShell>
   );
