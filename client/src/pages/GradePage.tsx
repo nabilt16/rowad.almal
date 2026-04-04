@@ -1,4 +1,4 @@
-import { useEffect, type CSSProperties } from 'react';
+import { useEffect, useCallback, type CSSProperties } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useGradeStore } from '../stores/gradeStore';
 import { useUIStore } from '../stores/uiStore';
@@ -119,12 +119,28 @@ export default function GradePage() {
   const { currentGrade, gradeLoading, error, fetchGrade, clearCurrentGrade } = useGradeStore();
   const { activeTab, setActiveTab } = useUIStore();
 
+  const SCROLL_KEY = `grade-${gradeNumber}-scroll`;
+
   useEffect(() => {
     if (gradeNumber) {
       fetchGrade(gradeNumber);
     }
     return () => clearCurrentGrade();
   }, [gradeNumber, fetchGrade, clearCurrentGrade]);
+
+  // Restore scroll position after grade data loads
+  useEffect(() => {
+    if (!currentGrade) return;
+    const saved = sessionStorage.getItem(SCROLL_KEY);
+    if (saved) {
+      sessionStorage.removeItem(SCROLL_KEY);
+      window.scrollTo({ top: parseInt(saved, 10), behavior: 'instant' });
+    }
+  }, [currentGrade, SCROLL_KEY]);
+
+  const saveScroll = useCallback(() => {
+    sessionStorage.setItem(SCROLL_KEY, String(window.scrollY));
+  }, [SCROLL_KEY]);
 
   if (gradeLoading) {
     return <LoadingSpinner text="جارٍ تحميل الصف..." />;
@@ -179,6 +195,7 @@ export default function GradePage() {
                     key={lesson.id}
                     to={`/grade/${gradeNumber}/lesson/${lesson.id}`}
                     style={lessonItemStyle}
+                    onClick={saveScroll}
                   >
                     <span style={lessonEmojiStyle}>{lesson.bgEmoji || '📖'}</span>
                     <span>{lesson.title}</span>
