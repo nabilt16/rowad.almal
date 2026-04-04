@@ -13,6 +13,6 @@ export async function updateProfile(data: ProfileUpdateInput): Promise<StudentPr
 }
 
 export async function completeOnboarding(data: OnboardingInput): Promise<StudentProfile> {
-  const res = await apiClient.post<StudentProfile>('/profile/onboarding', data);
+  const res = await apiClient.put<StudentProfile>('/profile/onboarding', data);
   return res.data;
 }
