@@ -12,6 +12,7 @@ import bucketRoutes from './routes/buckets.js';
 import glossaryRoutes from './routes/glossary.js';
 import guideRoutes from './routes/guide.js';
 import adminRoutes from './routes/admin.js';
+import ttsRoutes from './routes/tts.js';
 
 export const prisma = new PrismaClient();
 
@@ -36,6 +37,7 @@ app.use('/api/buckets', bucketRoutes);
 app.use('/api/glossary', glossaryRoutes);
 app.use('/api/guide', guideRoutes);
 app.use('/api/admin', adminRoutes);
+app.use('/api/tts', ttsRoutes);
 
 // Health check
 app.get('/api/health', (_req, res) => {

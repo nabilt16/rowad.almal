@@ -1,7 +1,7 @@
 export const GRADE_CONFIG = {
   4: {
     number: 4,
-    nameAr: 'الصف الرابع',
+    nameAr: 'المستوى الأول',
     slug: 'grade-4',
     unitCount: 5,
     lessonCount: 19,
@@ -9,7 +9,7 @@ export const GRADE_CONFIG = {
   },
   5: {
     number: 5,
-    nameAr: 'الصف الخامس',
+    nameAr: 'المستوى الثاني',
     slug: 'grade-5',
     unitCount: 5,
     lessonCount: 19,
@@ -17,7 +17,7 @@ export const GRADE_CONFIG = {
   },
   6: {
     number: 6,
-    nameAr: 'الصف السادس',
+    nameAr: 'المستوى الثالث',
     slug: 'grade-6',
     unitCount: 5,
     lessonCount: 20,

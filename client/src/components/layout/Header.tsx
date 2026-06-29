@@ -65,9 +65,9 @@ const titleStyle: CSSProperties = {
 };
 
 const GRADE_NAMES: Record<number, string> = {
-  4: 'الصف الرابع',
-  5: 'الصف الخامس',
-  6: 'الصف السادس',
+  4: 'المستوى الأول',
+  5: 'المستوى الثاني',
+  6: 'المستوى الثالث',
 };
 
 export default function Header({

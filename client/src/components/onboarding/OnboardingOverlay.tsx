@@ -271,7 +271,7 @@ const fieldRow: CSSProperties = {
 /* ──────────────────────────────────────────
    Component
    ────────────────────────────────────────── */
-const TOTAL_STEPS = 4;
+const TOTAL_STEPS = 3;
 
 export default function OnboardingOverlay({ onComplete }: OnboardingOverlayProps) {
   const [step, setStep] = useState(0);
@@ -282,10 +282,6 @@ export default function OnboardingOverlay({ onComplete }: OnboardingOverlayProps
   const [studentName, setStudentName] = useState('');
   const [gender, setGender] = useState<'male' | 'female' | ''>('');
   const [whoWorks, setWhoWorks] = useState<'dad' | 'mom' | 'both' | ''>('');
-  const [dadName, setDadName] = useState('');
-  const [dadJob, setDadJob] = useState('');
-  const [momName, setMomName] = useState('');
-  const [momJob, setMomJob] = useState('');
 
   /* ── Step validation ─────────────────── */
   const canProceed = (): boolean => {
@@ -294,13 +290,6 @@ export default function OnboardingOverlay({ onComplete }: OnboardingOverlayProps
         return studentName.trim().length >= 2 && gender !== '';
       case 1:
         return whoWorks !== '';
-      case 2:
-        return (
-          dadName.trim().length >= 1 &&
-          dadJob.trim().length >= 1 &&
-          momName.trim().length >= 1 &&
-          momJob.trim().length >= 1
-        );
       default:
         return true;
     }
@@ -311,7 +300,7 @@ export default function OnboardingOverlay({ onComplete }: OnboardingOverlayProps
     if (step < TOTAL_STEPS - 1) {
       setStep(step + 1);
       // Fire celebration on welcome step
-      if (step + 1 === 3) {
+      if (step + 1 === 2) {
         setTimeout(() => {
           confettiBurst();
           flyStars(6);
@@ -332,11 +321,7 @@ export default function OnboardingOverlay({ onComplete }: OnboardingOverlayProps
     const data: OnboardingInput = {
       studentName: studentName.trim(),
       gender: gender as 'male' | 'female',
-      whoWorks: whoWorks as 'dad' | 'mom' | 'both',
-      dadName: dadName.trim(),
-      dadJob: dadJob.trim(),
-      momName: momName.trim(),
-      momJob: momJob.trim(),
+      whoWorks: whoWorks as 'dad' | 'mom' | 'both' || undefined,
     };
 
     try {
@@ -482,63 +467,8 @@ export default function OnboardingOverlay({ onComplete }: OnboardingOverlayProps
     </div>
   );
 
-  /* ── Step 3: Parent Info ─────────────── */
+  /* ── Step 3 (now 2): Welcome ────────── */
   const renderStep2 = () => (
-    <div>
-      <h2 style={headingStyle}>
-        {'\u0645\u0639\u0644\u0648\u0645\u0627\u062a \u0627\u0644\u0639\u0627\u0626\u0644\u0629'}
-      </h2>
-
-      <div style={fieldRow}>
-        <div>
-          <label style={labelStyle}>{'\u0627\u0633\u0645 \u0627\u0644\u0623\u0628'}</label>
-          <input
-            type="text"
-            style={inputStyle}
-            placeholder={'\u0627\u0633\u0645 \u0627\u0644\u0623\u0628'}
-            value={dadName}
-            onChange={(e) => setDadName(e.target.value)}
-          />
-        </div>
-        <div>
-          <label style={labelStyle}>{'\u0645\u0647\u0646\u0629 \u0627\u0644\u0623\u0628'}</label>
-          <input
-            type="text"
-            style={inputStyle}
-            placeholder={'\u0645\u0647\u0646\u0629 \u0627\u0644\u0623\u0628'}
-            value={dadJob}
-            onChange={(e) => setDadJob(e.target.value)}
-          />
-        </div>
-      </div>
-
-      <div style={fieldRow}>
-        <div>
-          <label style={labelStyle}>{'\u0627\u0633\u0645 \u0627\u0644\u0623\u0645'}</label>
-          <input
-            type="text"
-            style={inputStyle}
-            placeholder={'\u0627\u0633\u0645 \u0627\u0644\u0623\u0645'}
-            value={momName}
-            onChange={(e) => setMomName(e.target.value)}
-          />
-        </div>
-        <div>
-          <label style={labelStyle}>{'\u0645\u0647\u0646\u0629 \u0627\u0644\u0623\u0645'}</label>
-          <input
-            type="text"
-            style={inputStyle}
-            placeholder={'\u0645\u0647\u0646\u0629 \u0627\u0644\u0623\u0645'}
-            value={momJob}
-            onChange={(e) => setMomJob(e.target.value)}
-          />
-        </div>
-      </div>
-    </div>
-  );
-
-  /* ── Step 4: Welcome ─────────────────── */
-  const renderStep3 = () => (
     <div style={welcomeContainer}>
       <div style={welcomeEmojiStyle}>{'\ud83c\udf89'}</div>
       <div style={welcomeNameStyle}>
@@ -579,8 +509,6 @@ export default function OnboardingOverlay({ onComplete }: OnboardingOverlayProps
         return renderStep1();
       case 2:
         return renderStep2();
-      case 3:
-        return renderStep3();
       default:
         return null;
     }
@@ -593,7 +521,7 @@ export default function OnboardingOverlay({ onComplete }: OnboardingOverlayProps
         {renderStep()}
 
         {/* Navigation buttons (hidden on welcome step) */}
-        {step < 3 && (
+        {step < 2 && (
           <div style={navRow}>
             {step > 0 ? (
               <button type="button" style={secondaryBtnStyle} onClick={handleBack}>

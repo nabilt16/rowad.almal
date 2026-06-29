@@ -197,21 +197,16 @@ export default function ProfileEditOverlay({
 }: ProfileEditOverlayProps) {
   const [studentName, setStudentName] = useState(profile.studentName);
   const [gender, setGender] = useState<'male' | 'female'>(profile.gender);
-  const [whoWorks, setWhoWorks] = useState<'dad' | 'mom' | 'both'>(profile.whoWorks);
-  const [dadName, setDadName] = useState(profile.dadName);
-  const [dadJob, setDadJob] = useState(profile.dadJob);
-  const [momName, setMomName] = useState(profile.momName);
-  const [momJob, setMomJob] = useState(profile.momJob);
+  const [whoWorks, setWhoWorks] = useState<'dad' | 'mom' | 'both'>(profile.whoWorks ?? 'both');
+  const [dadName, setDadName] = useState(profile.dadName ?? '');
+  const [dadJob, setDadJob] = useState(profile.dadJob ?? '');
+  const [momName, setMomName] = useState(profile.momName ?? '');
+  const [momJob, setMomJob] = useState(profile.momJob ?? '');
 
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const canSave =
-    studentName.trim().length >= 2 &&
-    dadName.trim().length >= 1 &&
-    dadJob.trim().length >= 1 &&
-    momName.trim().length >= 1 &&
-    momJob.trim().length >= 1;
+  const canSave = studentName.trim().length >= 2;
 
   const handleSave = async () => {
     if (!canSave) return;
@@ -222,10 +217,10 @@ export default function ProfileEditOverlay({
       studentName: studentName.trim(),
       gender,
       whoWorks,
-      dadName: dadName.trim(),
-      dadJob: dadJob.trim(),
-      momName: momName.trim(),
-      momJob: momJob.trim(),
+      dadName: dadName.trim() || undefined,
+      dadJob: dadJob.trim() || undefined,
+      momName: momName.trim() || undefined,
+      momJob: momJob.trim() || undefined,
     };
 
     try {

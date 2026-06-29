@@ -17,7 +17,8 @@ const pageStyle: CSSProperties = {
 
 const backLinkStyle: CSSProperties = {
   fontFamily: "'IBM Plex Arabic', sans-serif",
-  fontSize: '14px',
+  fontSize: '16px',
+  fontWeight: 600,
   color: 'var(--sky)',
   textDecoration: 'none',
   display: 'inline-block',
@@ -40,7 +41,7 @@ const tabBarStyle: CSSProperties = {
 
 const tabStyle = (active: boolean): CSSProperties => ({
   padding: '10px 24px',
-  fontSize: '15px',
+  fontSize: '16px',
   fontWeight: 700,
   fontFamily: "'IBM Plex Arabic', sans-serif",
   background: active ? 'var(--blue)' : 'rgba(255,255,255,0.08)',
@@ -88,7 +89,7 @@ const lessonItemStyle: CSSProperties = {
   transition: 'background 0.2s',
   fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '20px',
-  fontWeight: 500,
+  fontWeight: 600,
 };
 
 const lessonEmojiStyle: CSSProperties = {
@@ -119,7 +120,7 @@ export default function GradePage() {
   const { currentGrade, gradeLoading, error, fetchGrade, clearCurrentGrade } = useGradeStore();
   const { activeTab, setActiveTab } = useUIStore();
 
-  const SCROLL_KEY = `grade-${gradeNumber}-scroll`;
+  const UNIT_KEY = `grade-${gradeNumber}-unit`;
 
   useEffect(() => {
     if (gradeNumber) {
@@ -128,19 +129,20 @@ export default function GradePage() {
     return () => clearCurrentGrade();
   }, [gradeNumber, fetchGrade, clearCurrentGrade]);
 
-  // Restore scroll position after grade data loads
+  // After grade data loads, scroll to the unit the student was viewing
   useEffect(() => {
     if (!currentGrade) return;
-    const saved = sessionStorage.getItem(SCROLL_KEY);
-    if (saved) {
-      sessionStorage.removeItem(SCROLL_KEY);
-      window.scrollTo({ top: parseInt(saved, 10), behavior: 'instant' });
-    }
-  }, [currentGrade, SCROLL_KEY]);
+    const savedUnitId = sessionStorage.getItem(UNIT_KEY);
+    if (!savedUnitId) return;
+    sessionStorage.removeItem(UNIT_KEY);
+    setTimeout(() => {
+      document.getElementById(`unit-${savedUnitId}`)?.scrollIntoView({ behavior: 'instant', block: 'start' });
+    }, 50);
+  }, [currentGrade, UNIT_KEY]);
 
-  const saveScroll = useCallback(() => {
-    sessionStorage.setItem(SCROLL_KEY, String(window.scrollY));
-  }, [SCROLL_KEY]);
+  const saveUnit = useCallback((unitId: string) => {
+    sessionStorage.setItem(UNIT_KEY, unitId);
+  }, [UNIT_KEY]);
 
   if (gradeLoading) {
     return <LoadingSpinner text="جارٍ تحميل الصف..." />;
@@ -157,7 +159,7 @@ export default function GradePage() {
       </Link>
 
       <h1 style={titleStyle}>
-        {currentGrade?.nameAr || `الصف ${number}`}
+        {currentGrade?.nameAr || `المستوى ${number}`}
       </h1>
 
       <div style={tabBarStyle}>
@@ -175,7 +177,7 @@ export default function GradePage() {
       {activeTab === 'lessons' && (
         <>
           {currentGrade?.units.map((unit) => (
-            <div key={unit.id} style={unitCardStyle}>
+            <div key={unit.id} id={`unit-${unit.id}`} style={unitCardStyle}>
               <h2 style={unitTitleStyle}>
                 <span
                   style={{
@@ -195,7 +197,7 @@ export default function GradePage() {
                     key={lesson.id}
                     to={`/grade/${gradeNumber}/lesson/${lesson.id}`}
                     style={lessonItemStyle}
-                    onClick={saveScroll}
+                    onClick={() => saveUnit(unit.id)}
                   >
                     <span style={lessonEmojiStyle}>{lesson.bgEmoji || '📖'}</span>
                     <span>{lesson.title}</span>

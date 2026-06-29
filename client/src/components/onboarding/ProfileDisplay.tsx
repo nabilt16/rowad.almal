@@ -136,7 +136,7 @@ export default function ProfileDisplay({ profile }: ProfileDisplayProps) {
                 ? '\u0637\u0627\u0644\u0628\u0629'
                 : '\u0637\u0627\u0644\u0628'}
               {' \u2022 \u064a\u0639\u0645\u0644: '}
-              {WHO_WORKS_MAP[profile.whoWorks] || profile.whoWorks}
+              {profile.whoWorks ? (WHO_WORKS_MAP[profile.whoWorks] || profile.whoWorks) : ''}
             </div>
           </div>
         </div>

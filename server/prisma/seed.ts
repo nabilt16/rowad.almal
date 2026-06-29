@@ -3,6 +3,8 @@ import bcrypt from 'bcryptjs';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { applyGrade4ActivityConfigs } from './seed-activities-grade4.ts';
+import { applyGrade56ActivityConfigs } from './seed-activities-grade5-6.ts';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const prisma = new PrismaClient();
@@ -119,9 +121,9 @@ async function main() {
 
   // ── Grades ──
   const gradeConfigs = [
-    { number: 4, nameAr: 'الصف الرابع', slug: 'grade-4', file: 'grade4.json' },
-    { number: 5, nameAr: 'الصف الخامس', slug: 'grade-5', file: 'grade5.json' },
-    { number: 6, nameAr: 'الصف السادس', slug: 'grade-6', file: 'grade6.json' },
+    { number: 4, nameAr: 'المستوى الأول', slug: 'grade-4', file: 'grade4.json' },
+    { number: 5, nameAr: 'المستوى الثاني', slug: 'grade-5', file: 'grade5.json' },
+    { number: 6, nameAr: 'المستوى الثالث', slug: 'grade-6', file: 'grade6.json' },
   ];
 
   for (const gc of gradeConfigs) {
@@ -298,6 +300,9 @@ async function main() {
       console.log(`    ${guideLessonCount} guide lessons`);
     }
   }
+
+  await applyGrade4ActivityConfigs(prisma);
+  await applyGrade56ActivityConfigs(prisma);
 
   console.log('\n✅ Seed complete!');
 }

@@ -5,22 +5,22 @@ import { useAuthStore } from '../stores/authStore';
 const GRADES = [
   {
     number: 4,
-    nameAr: 'الصف الرابع',
-    emoji: '4\uFE0F\u20E3',
+    nameAr: 'المستوى الأول',
+    emoji: '1\uFE0F\u20E3',
     color: 'linear-gradient(135deg, #1565C0, #1E88E5)',
     description: '19 درسًا في 5 وحدات',
   },
   {
     number: 5,
-    nameAr: 'الصف الخامس',
-    emoji: '5\uFE0F\u20E3',
+    nameAr: 'المستوى الثاني',
+    emoji: '2\uFE0F\u20E3',
     color: 'linear-gradient(135deg, #2E7D32, #66BB6A)',
     description: '19 درسًا في 5 وحدات',
   },
   {
     number: 6,
-    nameAr: 'الصف السادس',
-    emoji: '6\uFE0F\u20E3',
+    nameAr: 'المستوى الثالث',
+    emoji: '3\uFE0F\u20E3',
     color: 'linear-gradient(135deg, #F9A825, #FFD54F)',
     description: '20 درسًا في 5 وحدات',
   },
@@ -49,7 +49,8 @@ const logoStyle: CSSProperties = {
 
 const welcomeStyle: CSSProperties = {
   fontFamily: "'IBM Plex Arabic', sans-serif",
-  fontSize: '18px',
+  fontSize: '19px',
+  fontWeight: 500,
   color: 'var(--gray-3)',
 };
 
@@ -58,7 +59,7 @@ const logoutBtnStyle: CSSProperties = {
   top: '20px',
   left: '20px',
   padding: '8px 20px',
-  fontSize: '14px',
+  fontSize: '16px',
   fontWeight: 600,
   fontFamily: "'IBM Plex Arabic', sans-serif",
   background: 'rgba(255,255,255,0.1)',
@@ -104,8 +105,9 @@ const gradeNameStyle: CSSProperties = {
 
 const descStyle: CSSProperties = {
   fontFamily: "'IBM Plex Arabic', sans-serif",
-  fontSize: '14px',
-  opacity: 0.9,
+  fontSize: '16px',
+  fontWeight: 500,
+  opacity: 0.95,
   marginBottom: '16px',
 };
 
@@ -144,7 +146,7 @@ const parentBtnStyle: CSSProperties = {
   alignItems: 'center',
   gap: '8px',
   padding: '12px 28px',
-  fontSize: '15px',
+  fontSize: '17px',
   fontWeight: 700,
   fontFamily: "'IBM Plex Arabic', sans-serif",
   background: 'rgba(255,255,255,0.08)',
@@ -157,10 +159,10 @@ const parentBtnStyle: CSSProperties = {
 
 const adminLinkStyle: CSSProperties = {
   fontFamily: "'IBM Plex Arabic', sans-serif",
-  fontSize: '13px',
+  fontSize: '15px',
   color: 'var(--gray-3)',
   textDecoration: 'none',
-  opacity: 0.7,
+  opacity: 0.85,
   transition: 'opacity 0.2s',
 };
 
@@ -178,7 +180,7 @@ export default function HomePage() {
       <header style={headerStyle}>
         <h1 style={logoStyle}>رواد المال</h1>
         <p style={welcomeStyle}>
-          مرحبًا{displayName ? ` ${displayName}` : ''}! اختر صفك للبدء
+          مرحبًا{displayName ? ` ${displayName}` : ''}! اختر مستواك للبدء
         </p>
       </header>
 

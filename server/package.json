@@ -9,6 +9,7 @@
     "start": "node dist/app.js",
     "db:migrate": "prisma migrate dev",
     "db:seed": "tsx prisma/seed.ts",
+    "db:seed:activities": "tsx prisma/seed-activities-grade5-6.ts",
     "db:reset": "prisma migrate reset --force",
     "db:generate": "prisma generate"
   },

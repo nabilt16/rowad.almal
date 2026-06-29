@@ -222,7 +222,7 @@ export default function Calculation({ config, onComplete }: CalculationProps) {
               }}
               value={userAnswers[i]}
               onChange={(e) => handleInputChange(i, e.target.value)}
-              placeholder="\u0627\u0644\u0625\u062C\u0627\u0628\u0629"
+              placeholder="الإجابة"
               disabled={completed}
             />
             {q.unit && <span style={unitLabelStyle}>{q.unit}</span>}

@@ -468,7 +468,6 @@ export default function LessonPage() {
           text={currentLesson.storyText}
           onRead={handleStoryRead}
           highlight={gradeNumber !== 5}
-          isFirst
         />
 
         <div style={sectionDividerStyle} />

@@ -13,7 +13,7 @@ interface BucketCardProps {
 
 const LABELS: Record<string, { name: string; icon: string | null }> = {
   spend: { name: 'إنفاق', icon: '🛒' },
-  save:  { name: 'توفير', icon: null },
+  save:  { name: 'قجة', icon: null },
   give:  { name: 'عطاء', icon: '🤲' },
 };
 

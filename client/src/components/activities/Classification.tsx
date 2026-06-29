@@ -269,7 +269,7 @@ export default function Classification({ config, onComplete }: ClassificationPro
                       handleItemClick(item.id);
                     }}
                   >
-                    {item.text} \u00D7
+                    {item.text} ×
                   </button>
                 ))}
                 {catItems.length === 0 && (

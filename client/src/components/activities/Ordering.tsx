@@ -183,7 +183,7 @@ export default function Ordering({ config, onComplete }: OrderingProps) {
                   disabled={position === 0}
                   aria-label="\u0644\u0644\u0623\u0639\u0644\u0649"
                 >
-                  \u25B2
+                  ▲
                 </button>
                 <button
                   style={{
@@ -194,7 +194,7 @@ export default function Ordering({ config, onComplete }: OrderingProps) {
                   disabled={position === order.length - 1}
                   aria-label="\u0644\u0644\u0623\u0633\u0641\u0644"
                 >
-                  \u25BC
+                  ▼
                 </button>
               </div>
             )}

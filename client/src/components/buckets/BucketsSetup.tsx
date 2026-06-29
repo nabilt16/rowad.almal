@@ -384,7 +384,7 @@ export default function BucketsSetup() {
           {/* Save slider */}
           <div style={sliderGroupStyle}>
             <div style={sliderLabelStyle(BUCKET_COLORS.save)}>
-              <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}><SavingBoxIcon size={20} /> توفير</span>
+              <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}><SavingBoxIcon size={20} /> قجة</span>
               <span>{savePct}%</span>
             </div>
             <input
@@ -442,12 +442,12 @@ export default function BucketsSetup() {
         <div style={cardStyle}>
           <div style={stepLabelStyle}>
             <span style={stepNumStyle(true)}>3</span>
-            أهداف التوفير والعطاء
+            أهداف القجة والعطاء
           </div>
 
           {/* Save goal */}
           <div style={inputGroupStyle}>
-            <label style={{ ...labelStyle, display: 'flex', alignItems: 'center', gap: '6px' }}><SavingBoxIcon size={18} /> هدف التوفير (اختياري)</label>
+            <label style={{ ...labelStyle, display: 'flex', alignItems: 'center', gap: '6px' }}><SavingBoxIcon size={18} /> هدف القجة (اختياري)</label>
             <input
               type="text"
               placeholder="مثلاً: دراجة جديدة"

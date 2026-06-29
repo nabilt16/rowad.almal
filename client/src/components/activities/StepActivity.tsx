@@ -17,10 +17,17 @@ interface StepInteraction {
   tolerance?: number;
 }
 
+interface StepProduct {
+  label: string;
+  price: number;
+  weight: string;
+}
+
 interface Step {
   title: string;
   description?: string;
   content?: string;
+  products?: StepProduct[];
   interaction?: StepInteraction;
   feedback?: { correct?: string; wrong?: string };
 }
@@ -149,6 +156,25 @@ const btnRowStyle: CSSProperties = {
   marginTop: '16px',
 };
 
+const productsInfoStyle: CSSProperties = {
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '10px',
+  marginBottom: '16px',
+};
+
+const productRowStyle: CSSProperties = {
+  fontFamily: "'IBM Plex Arabic', sans-serif",
+  fontSize: '18px',
+  fontWeight: 600,
+  color: '#FFFFFF',
+  lineHeight: 1.6,
+  background: 'rgba(255,255,255,0.05)',
+  border: '1px solid rgba(255,255,255,0.12)',
+  borderRadius: 'var(--r)',
+  padding: '12px 16px',
+};
+
 /* ------------------------------------------------------------------ */
 /*  Component                                                          */
 /* ------------------------------------------------------------------ */
@@ -231,40 +257,66 @@ export default function StepActivity({
     }
   };
 
+  const isMCStep =
+    step.interaction?.type === 'multiple_choice' ||
+    step.interaction?.type === 'selection';
+
+  /* For MC steps: validate immediately on choice click, no auto-advance */
+  const handleChoiceClick = (i: number) => {
+    if (stepLocked || stepFeedback !== null) return;
+    setSelectedChoice(i);
+    const chosen = step.interaction!.choices?.[i];
+    const isCorrect = chosen?.correct === true;
+    const result = isCorrect ? 'correct' : 'wrong';
+    setStepFeedback(result);
+    setStepLocked(true);
+    setStepAnswers((prev) => ({ ...prev, [currentStep]: String(i) }));
+  };
+
+  /* Advance to next step (called after feedback is shown) */
+  const handleAdvance = () => {
+    setCompletedSteps((prev) => [...prev, currentStep]);
+    setStepFeedback(null);
+    setStepLocked(false);
+    setSelectedChoice(null);
+    setInputValue('');
+    setCurrentStep((prev) => prev + 1);
+  };
+
+  /* Complete activity from last step (called after feedback or for no-interaction step) */
+  const handleCompleteActivity = () => {
+    const allSteps = [...completedSteps, currentStep];
+    const score = Math.round((allSteps.length / totalSteps) * 100);
+    onComplete(score, { stepAnswers, completedSteps: allSteps });
+  };
+
   const handleNext = () => {
     if (stepLocked) return;
 
     if (hasInteraction && !completedSteps.includes(currentStep)) {
+      // input type: validate on button click (keep existing behaviour)
       const valid = validateStep();
-
       if (!valid) {
         setStepFeedback('wrong');
         setTimeout(() => setStepFeedback(null), 1500);
         return;
       }
-
       setStepFeedback('correct');
       setStepLocked(true);
-
-      // Store answer
       setStepAnswers((prev) => ({
         ...prev,
-        [currentStep]:
-          inputValue || (selectedChoice !== null ? String(selectedChoice) : ''),
+        [currentStep]: inputValue || (selectedChoice !== null ? String(selectedChoice) : ''),
       }));
-
       setTimeout(() => {
         setCompletedSteps((prev) => [...prev, currentStep]);
         setStepFeedback(null);
         setStepLocked(false);
-
         if (!isLastStep) {
           setCurrentStep((prev) => prev + 1);
           setInputValue('');
           setSelectedChoice(null);
         }
       }, 1200);
-
       return;
     }
 
@@ -272,7 +324,6 @@ export default function StepActivity({
     if (!completedSteps.includes(currentStep)) {
       setCompletedSteps((prev) => [...prev, currentStep]);
     }
-
     if (!isLastStep) {
       setCurrentStep((prev) => prev + 1);
       setInputValue('');
@@ -283,7 +334,6 @@ export default function StepActivity({
 
   const handleComplete = () => {
     if (stepLocked) return;
-
     if (hasInteraction && !completedSteps.includes(currentStep)) {
       const valid = validateStep();
       if (!valid) {
@@ -291,26 +341,19 @@ export default function StepActivity({
         setTimeout(() => setStepFeedback(null), 1500);
         return;
       }
-
       setStepFeedback('correct');
       setStepLocked(true);
-
       const finalAnswers = {
         ...stepAnswers,
-        [currentStep]:
-          inputValue || (selectedChoice !== null ? String(selectedChoice) : ''),
+        [currentStep]: inputValue || (selectedChoice !== null ? String(selectedChoice) : ''),
       };
-
       setTimeout(() => {
         const allSteps = [...completedSteps, currentStep];
         const score = Math.round((allSteps.length / totalSteps) * 100);
         onComplete(score, { stepAnswers: finalAnswers, completedSteps: allSteps });
       }, 1200);
-
       return;
     }
-
-    // Final step without interaction
     const allSteps = [...completedSteps, currentStep];
     const score = Math.round((allSteps.length / totalSteps) * 100);
     onComplete(score, { stepAnswers, completedSteps: allSteps });
@@ -366,6 +409,20 @@ export default function StepActivity({
           </div>
         )}
 
+        {/* Product info display (shown before choices when products are defined) */}
+        {step.products && step.products.length > 0 && (
+          <div style={productsInfoStyle}>
+            {step.products.map((p, i) => (
+              <div key={i} style={productRowStyle}>
+                📦 {p.label}:{' '}
+                <span style={{ color: '#00ff88', fontWeight: 700 }}>{p.price} ₪</span>
+                {' / '}
+                <span style={{ color: '#FFD700' }}>{p.weight}</span>
+              </div>
+            ))}
+          </div>
+        )}
+
         {/* Interaction */}
         {hasInteraction && !completedSteps.includes(currentStep) && (
           <div style={{ marginBottom: '8px' }}>
@@ -391,13 +448,8 @@ export default function StepActivity({
                     <button
                       key={i}
                       style={getChoiceStyle(i)}
-                      onClick={() => {
-                        if (!stepLocked) {
-                          setSelectedChoice(i);
-                          setStepFeedback(null);
-                        }
-                      }}
-                      disabled={stepLocked}
+                      onClick={() => handleChoiceClick(i)}
+                      disabled={stepFeedback !== null}
                     >
                       {choice.text}
                     </button>
@@ -436,7 +488,21 @@ export default function StepActivity({
 
         {/* Navigation */}
         <div style={btnRowStyle}>
-          {isLastStep ? (
+          {/* MC steps: show التالي/إنهاء only AFTER feedback */}
+          {isMCStep && stepFeedback !== null && (
+            isLastStep ? (
+              <button style={completeBtnStyle} onClick={handleCompleteActivity}>
+                إنهاء النشاط
+              </button>
+            ) : (
+              <button style={nextBtnStyle} onClick={handleAdvance}>
+                التالي ←
+              </button>
+            )
+          )}
+
+          {/* Non-MC steps (input / no interaction): always show button */}
+          {!isMCStep && (isLastStep ? (
             <button
               style={{
                 ...completeBtnStyle,
@@ -445,7 +511,7 @@ export default function StepActivity({
               onClick={handleComplete}
               disabled={stepLocked || (!isStepSatisfied() && !completedSteps.includes(currentStep))}
             >
-              {'\u0625\u0646\u0647\u0627\u0621 \u0627\u0644\u0646\u0634\u0627\u0637'}
+              إنهاء النشاط
             </button>
           ) : (
             <button
@@ -456,9 +522,9 @@ export default function StepActivity({
               onClick={handleNext}
               disabled={stepLocked || (!isStepSatisfied() && !completedSteps.includes(currentStep))}
             >
-              {'\u0627\u0644\u062A\u0627\u0644\u064A \u2190'}
+              التالي ←
             </button>
-          )}
+          ))}
         </div>
       </div>
     </div>

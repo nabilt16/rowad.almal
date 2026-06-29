@@ -1,6 +1,8 @@
 import { useState, type ReactNode, type CSSProperties } from 'react';
 import { useAuthStore } from '../../stores/authStore';
+import { useUIStore } from '../../stores/uiStore';
 import OnboardingOverlay from '../onboarding/OnboardingOverlay';
+import BudgetOnboardingOverlay from '../onboarding/BudgetOnboardingOverlay';
 
 /**
  * AppShell — wraps the entire app with the background gradient, grid overlay,
@@ -33,13 +35,23 @@ const appContainerStyle: CSSProperties = {
 export default function AppShell({ children }: AppShellProps) {
   const user = useAuthStore((s) => s.user);
   const profile = useAuthStore((s) => s.profile);
+  const personalBudget = useUIStore((s) => s.personalBudget);
   const [onboardingDismissed, setOnboardingDismissed] = useState(false);
+  const [budgetDismissed, setBudgetDismissed] = useState(false);
 
-  /* Show onboarding overlay if user is logged in but has no profile or profile is NOT onboarded */
+  /* Show profile onboarding overlay for users who haven't completed it */
   const showOnboarding =
     user !== null &&
     (profile === null || profile.onboarded === false) &&
     !onboardingDismissed;
+
+  /* Show budget onboarding once per session, only after profile onboarding is done */
+  const showBudgetOnboarding =
+    user !== null &&
+    profile?.onboarded === true &&
+    !showOnboarding &&
+    personalBudget === null &&
+    !budgetDismissed;
 
   return (
     <>
@@ -70,9 +82,14 @@ export default function AppShell({ children }: AppShellProps) {
         {children}
       </div>
 
-      {/* Onboarding overlay for users who haven't completed onboarding */}
+      {/* Profile onboarding overlay (first-time users) */}
       {showOnboarding && (
         <OnboardingOverlay onComplete={() => setOnboardingDismissed(true)} />
+      )}
+
+      {/* Budget onboarding overlay (once per session, after profile onboarding) */}
+      {showBudgetOnboarding && (
+        <BudgetOnboardingOverlay onComplete={() => setBudgetDismissed(true)} />
       )}
     </>
   );

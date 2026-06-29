@@ -1,10 +1,11 @@
-import { useState, useEffect, useRef, type CSSProperties } from 'react';
+import React, { useState, useEffect, useRef, type CSSProperties } from 'react';
 
 interface ConceptCardProps {
   title: string;
   text: string;
   html?: string;
   onRead: () => void;
+  highlight?: boolean;
 }
 
 const cardStyle: CSSProperties = {
@@ -33,10 +34,12 @@ const textStyle: CSSProperties = {
   lineHeight: 2.1,
   color: 'rgba(255,255,255,0.88)',
   fontFamily: "'IBM Plex Arabic', sans-serif",
+  whiteSpace: 'pre-wrap',
 };
 
 const htmlContainerStyle: CSSProperties = {
   ...textStyle,
+  whiteSpace: 'normal',
 };
 
 const btnStyle: CSSProperties = {
@@ -63,7 +66,36 @@ const btnDoneStyle: CSSProperties = {
   cursor: 'default',
 };
 
-export default function ConceptCard({ title, text, html, onRead }: ConceptCardProps) {
+const linkStyle: CSSProperties = {
+  color: '#64B5F6',
+  textDecoration: 'underline',
+  wordBreak: 'break-all',
+};
+
+const numStyle: CSSProperties = {
+  fontWeight: 800,
+  color: '#4DF0A0',
+};
+
+const IS_NUM_HIGHLIGHT = /[\d₪%=+\-×÷]/;
+
+// Split on URLs, ₪ amounts, percentages, math operators, and numbers — apply styles to each.
+// No Arabic words or letters are ever included in a match.
+function renderText(text: string, highlight: boolean): React.ReactNode {
+  const parts = text.split(/(https?:\/\/\S+|www\.\S+|₪\s*\d[\d,.]*|\d[\d,.]*\s*₪|\d[\d,.]*\s*%|\d[\d,.]*|[=+\-×÷])/g);
+  return parts.map((p, i) => {
+    if (/^(https?:\/\/|www\.)/.test(p)) {
+      const href = p.startsWith('http') ? p : `https://${p}`;
+      return <a key={i} href={href} target="_blank" rel="noopener noreferrer" style={linkStyle}>{p}</a>;
+    }
+    if (highlight && IS_NUM_HIGHLIGHT.test(p)) {
+      return <span key={i} style={numStyle}>{p}</span>;
+    }
+    return p;
+  });
+}
+
+export default function ConceptCard({ title, text, html, onRead, highlight = false }: ConceptCardProps) {
   const [read, setRead] = useState(false);
   const htmlRef = useRef<HTMLDivElement>(null);
 
@@ -124,7 +156,7 @@ export default function ConceptCard({ title, text, html, onRead }: ConceptCardPr
           dangerouslySetInnerHTML={{ __html: html }}
         />
       ) : (
-        <p style={textStyle}>{text}</p>
+        <p style={textStyle}>{renderText(text, highlight)}</p>
       )}
 
       <button

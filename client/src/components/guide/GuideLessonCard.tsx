@@ -1,4 +1,4 @@
-import { useState, type CSSProperties } from 'react';
+import React, { useState, type CSSProperties } from 'react';
 import type { GuideStep, GuideTip } from '@rowad/shared';
 
 interface GuideLessonCardProps {
@@ -141,7 +141,7 @@ const stepDescStyle: CSSProperties = {
   fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '14px',
   lineHeight: 1.8,
-  color: 'rgba(255,255,255,0.75)',
+  color: 'rgba(255,255,255,0.88)',
 };
 
 const stepTimeChipStyle: CSSProperties = {
@@ -176,7 +176,7 @@ const questionTextStyle: CSSProperties = {
   fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '15px',
   lineHeight: 1.9,
-  color: 'rgba(255,255,255,0.85)',
+  color: 'rgba(255,255,255,0.88)',
 };
 
 const tipItemStyle: CSSProperties = {
@@ -189,11 +189,36 @@ const tipItemStyle: CSSProperties = {
   marginBottom: '8px',
 };
 
+const numHighlightStyle: CSSProperties = {
+  fontWeight: 800,
+  fontSize: '15px',
+  color: '#4DF0A0',
+};
+
+const guideLinkStyle: React.CSSProperties = {
+  color: '#64B5F6',
+  textDecoration: 'underline',
+  wordBreak: 'break-all',
+};
+
+// Highlights ₪ amounts, percentages, time durations, bare numbers, and URLs.
+function hl(text: string): React.ReactNode {
+  const parts = text.split(/(https?:\/\/\S+|www\.\S+|₪\s*\d[\d,.]*|\d[\d,.]*\s*₪|\d[\d,.]*\s*%|\d[\d,.]*\s*(?:دقيقة|دقائق|ثانية|ثواني|دق)|\d+)/g);
+  return parts.map((p, i) => {
+    if (/^(https?:\/\/|www\.)/.test(p)) {
+      const href = p.startsWith('http') ? p : `https://${p}`;
+      return <a key={i} href={href} target="_blank" rel="noopener noreferrer" style={guideLinkStyle}>{p}</a>;
+    }
+    if (/\d/.test(p)) return <span key={i} style={numHighlightStyle}>{p}</span>;
+    return p;
+  });
+}
+
 const tipTextStyle: CSSProperties = {
   fontFamily: "'IBM Plex Arabic', sans-serif",
   fontSize: '15px',
   lineHeight: 1.9,
-  color: 'rgba(255,255,255,0.85)',
+  color: 'rgba(255,255,255,0.88)',
   flex: 1,
 };
 
@@ -232,7 +257,7 @@ export default function GuideLessonCard({
               </div>
               <div style={goalBoxStyle}>
                 <span style={goalIconStyle}>{'\uD83C\uDFAF'}</span>
-                <span style={goalTextStyle}>{goal}</span>
+                <span style={goalTextStyle}>{hl(goal)}</span>
               </div>
             </div>
           )}
@@ -247,7 +272,7 @@ export default function GuideLessonCard({
                 <div key={idx} style={stepItemStyle}>
                   <span style={stepNumberStyle(accentColor)}>{idx + 1}</span>
                   <div style={stepContentStyle}>
-                    <div style={stepDescStyle}>{step.text}</div>
+                    <div style={stepDescStyle}>{hl(step.text)}</div>
                   </div>
                   {step.time && (
                     <span style={stepTimeChipStyle}>
@@ -270,7 +295,7 @@ export default function GuideLessonCard({
                   <span style={questionNumberStyle}>
                     {'\u2753'} {idx + 1}.
                   </span>
-                  <span style={questionTextStyle}>{q}</span>
+                  <span style={questionTextStyle}>{hl(q)}</span>
                 </div>
               ))}
             </div>
@@ -285,7 +310,7 @@ export default function GuideLessonCard({
               {tips.map((tip, idx) => (
                 <div key={idx} style={tipItemStyle}>
                   <span style={{ fontSize: '16px', flexShrink: 0 }}>{tip.icon || '\uD83D\uDCA1'}</span>
-                  <span style={tipTextStyle}>{tip.text}</span>
+                  <span style={tipTextStyle}>{hl(tip.text)}</span>
                 </div>
               ))}
             </div>

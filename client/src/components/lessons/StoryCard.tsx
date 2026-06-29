@@ -6,68 +6,98 @@ interface StoryCardProps {
   text: string;
   onRead: () => void;
   highlight?: boolean;
-  isFirst?: boolean;
 }
 
-// Number-to-Arabic-word table. Longer entries must come first to prevent
-// a shorter pattern from matching inside a larger number (e.g. "33" in "330").
-const NUMBER_WORDS: [RegExp, string][] = [
-  [/(?<!\d)1000(?!\d)/g, 'ألف'],
-  [/(?<!\d)330(?!\d)/g,  'ثلاثمائة وثلاثون'],
-  [/(?<!\d)235(?!\d)/g,  'مائتين وخمسة وثلاثين'],
-  [/(?<!\d)200(?!\d)/g,  'مئتان'],
-  [/(?<!\d)100(?!\d)/g,  'مائة'],
-  [/(?<!\d)55(?!\d)/g,   'خمسة وخمسون'],
-  [/(?<!\d)50(?!\d)/g,   'خمسون'],
-  [/(?<!\d)30(?!\d)/g,   'ثلاثون'],
-  [/(?<!\d)20(?!\d)/g,   'عشرون'],
-  [/(?<!\d)12(?!\d)/g,   'اثني عشر'],
-  [/(?<!\d)10(?!\d)/g,   'عشرة'],
-  [/(?<!\d)9(?!\d)/g,    'تسعة'],
-  [/(?<!\d)8(?!\d)/g,    'ثمانية'],
-  [/(?<!\d)7(?!\d)/g,    'سبعة'],
-  [/(?<!\d)6(?!\d)/g,    'ستة'],
-  [/(?<!\d)5(?!\d)/g,    'خمسة'],
-  [/(?<!\d)4(?!\d)/g,    'أربعة'],
-  [/(?<!\d)3(?!\d)/g,    'ثلاثة'],
-  [/(?<!\d)2(?!\d)/g,    'اثنان'],
-  [/(?<!\d)1(?!\d)/g,    'واحد'],
+const BELOW_20 = [
+  '', 'واحد', 'اثنان', 'ثلاثة', 'أربعة', 'خمسة', 'ستة', 'سبعة', 'ثمانية', 'تسعة',
+  'عشرة', 'أحد عشر', 'اثنا عشر', 'ثلاثة عشر', 'أربعة عشر', 'خمسة عشر',
+  'ستة عشر', 'سبعة عشر', 'ثمانية عشر', 'تسعة عشر',
 ];
+const TENS  = ['', '', 'عشرون', 'ثلاثون', 'أربعون', 'خمسون', 'ستون', 'سبعون', 'ثمانون', 'تسعون'];
+const H100S = ['', 'مائة', 'مئتان', 'ثلاثمائة', 'أربعمائة', 'خمسمائة', 'ستمائة', 'سبعمائة', 'ثمانمائة', 'تسعمائة'];
+
+function toArabicWords(n: number): string {
+  n = Math.floor(Math.abs(n));
+  if (n === 0) return 'صفر';
+  const parts: string[] = [];
+  if (n >= 1000) {
+    const th = Math.floor(n / 1000);
+    n %= 1000;
+    if (th === 1)      parts.push('ألف');
+    else if (th === 2) parts.push('ألفان');
+    else if (th <= 10) parts.push(BELOW_20[th] + ' آلاف');
+    else               parts.push(toArabicWords(th) + ' ألف');
+  }
+  if (n >= 100) {
+    parts.push(H100S[Math.floor(n / 100)]);
+    n %= 100;
+  }
+  if (n >= 20) {
+    const unit = n % 10;
+    const ten  = Math.floor(n / 10);
+    parts.push(unit > 0 ? BELOW_20[unit] + ' و' + TENS[ten] : TENS[ten]);
+  } else if (n > 0) {
+    parts.push(BELOW_20[n]);
+  }
+  return parts.join(' و');
+}
+
+function numToArabic(s: string): string {
+  if (s.includes('.')) {
+    const [intPart, decPart] = s.split('.');
+    return toArabicWords(parseInt(intPart, 10)) + ' فاصلة ' + toArabicWords(parseInt(decPart, 10));
+  }
+  return toArabicWords(parseInt(s, 10));
+}
+
+function opToArabic(op: string): string {
+  switch (op) {
+    case '÷':                    return 'على';
+    case '×': case 'x': case 'X': case '*': return 'ضرب';
+    case '+':                    return 'زائد';
+    case '-':                    return 'ناقص';
+    default:                     return op;
+  }
+}
+
+// In RTL text "A op B" is visually displayed as "B op A", so we swap operands
+// so ElevenLabs reads them in the order the student sees on screen.
+const NUM_PAT = '(\\d+(?:\\.\\d+)?)';
+const OP_PAT  = '([÷×xX*+\\-])';
+const FORMULA_EQ  = new RegExp(`${NUM_PAT}\\s*${OP_PAT}\\s*${NUM_PAT}\\s*=\\s*${NUM_PAT}`, 'g');
+const FORMULA_BIN = new RegExp(`${NUM_PAT}\\s*${OP_PAT}\\s*${NUM_PAT}`, 'g');
 
 function prepareStoryForAudio(text: string): string {
   let result = text;
 
-  // Separate attached preposition ب (with optional tatweel ـ) from digits so
-  // ElevenLabs doesn't stumble on "بـ6" — must run before everything else.
+  // Word-specific diacritic fixes to force correct TTS pronunciation.
+  result = result.replace(/شعرت/g, 'شَعَرَت');
+
+  // Separate attached preposition ب (with optional tatweel ـ) from digits.
   result = result.replace(/ب[ـ]*(\d)/g, 'ب $1');
 
-  // Decimal numbers: replace the dot with فاصلة so ElevenLabs reads it clearly.
-  // Specific values first (to control exact word form), then a general fallback
-  // that inserts فاصلة so the number-to-word pass below converts each part.
-  result = result.replace(/1\.8/g, 'واحد فاصلة ثمانية');
-  result = result.replace(/1\.2/g, 'واحد فاصلة اثنين');
-  result = result.replace(/(\d+)\.(\d+)/g, '$1 فاصلة $2');
+  // Full equations: A op B = C → reverse operands for RTL reading.
+  result = result.replace(FORMULA_EQ, (_m, a, op, b, c) =>
+    `${numToArabic(b)} ${opToArabic(op)} ${numToArabic(a)} يساوي ${numToArabic(c)}`
+  );
 
-  // Hard-coded formula fixes — run first so the digit sequences are consumed
-  // before the number-to-word pass or the generic operator pass sees them.
-  result = result.replace(/6\s*÷\s*330/g,   'ثلاثمائة وثلاثين على ستة');
-  result = result.replace(/12\s*÷\s*1000/g, 'ألف على اثني عشر');
+  // Simple binary formulas: A op B → reverse for RTL reading.
+  result = result.replace(FORMULA_BIN, (_m, a, op, b) =>
+    `${numToArabic(b)} ${opToArabic(op)} ${numToArabic(a)}`
+  );
 
-  // Replace remaining numbers with their spoken Arabic equivalents.
-  for (const [pattern, word] of NUMBER_WORDS) {
-    result = result.replace(pattern, word);
-  }
-
-  // Equals sign → يساوي (must run after number-to-word so digits are gone).
-  result = result.replace(/=/g, ' يساوي ');
-
-  // Any remaining ÷ → على (catches formulas not covered by the hard-coded list).
-  result = result.replace(/÷/g, ' على ');
-
-  // Currency symbol → Arabic word.
-  result = result.replace(/(\d+)\s*₪/g, '$1 شيكل');
-  result = result.replace(/₪\s*(\d+)/g, '$1 شيكل');
+  // Currency: convert amount then append شيكل.
+  result = result.replace(/(\d+(?:\.\d+)?)\s*₪/g, (_m, n) => numToArabic(n) + ' شيكل');
+  result = result.replace(/₪\s*(\d+(?:\.\d+)?)/g, (_m, n) => numToArabic(n) + ' شيكل');
   result = result.replace(/₪/g, 'شيكل');
+
+  // Convert any remaining numbers to Arabic words.
+  result = result.replace(/\d+(?:\.\d+)?/g, (m) => numToArabic(m));
+
+  // Clean up any raw operators that survived.
+  result = result.replace(/÷/g, ' على ');
+  result = result.replace(/[×xX*]/g, ' ضرب ');
+  result = result.replace(/=/g, ' يساوي ');
 
   return result;
 }
@@ -158,7 +188,7 @@ const chevronStyle = (expanded: boolean): CSSProperties => ({
   fontSize: '11px',
 });
 
-export default function StoryCard({ title, text, onRead, highlight = false, isFirst = false }: StoryCardProps) {
+export default function StoryCard({ title, text, onRead, highlight = false }: StoryCardProps) {
   const [expanded, setExpanded] = useState(true);
   const [read, setRead] = useState(false);
   const [playing, setPlaying] = useState(false);
@@ -200,7 +230,7 @@ export default function StoryCard({ title, text, onRead, highlight = false, isFi
     // Fetch audio from backend TTS proxy
     setLoading(true);
     try {
-      const spokenText = isFirst ? prepareStoryForAudio(text) : text;
+      const spokenText = prepareStoryForAudio(text);
       const response = await fetch('http://localhost:3001/api/tts', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

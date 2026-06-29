@@ -36,6 +36,9 @@ const STEP_ACTIVITY_TYPES = new Set([
   'business_calculator',
   'phishing_detector',
   'inflation_timeline',
+  'digital_payment',
+  'business_model',
+  'independence_plan',
 ]);
 
 /* ------------------------------------------------------------------ */

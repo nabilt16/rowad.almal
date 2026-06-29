@@ -13,7 +13,8 @@ const pageStyle: CSSProperties = {
 
 const backLinkStyle: CSSProperties = {
   fontFamily: "'IBM Plex Arabic', sans-serif",
-  fontSize: '14px',
+  fontSize: '16px',
+  fontWeight: 600,
   color: 'var(--sky)',
   textDecoration: 'none',
   display: 'inline-flex',
@@ -48,7 +49,7 @@ export default function GlossaryPage() {
   return (
     <div style={pageStyle}>
       <Link to={`/grade/${number}`} style={backLinkStyle}>
-        {'\u2190'} العودة للصف
+        {'\u2190'} العودة للمستوى
       </Link>
 
       <div style={headerStyle}>

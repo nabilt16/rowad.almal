@@ -37,6 +37,7 @@
 
 html {
   scroll-behavior: smooth;
+  font-size: 17px;
 }
 
 /* ===================================
@@ -48,7 +49,9 @@ body {
   color: var(--text);
   min-height: 100vh;
   direction: rtl;
-  line-height: 1.6;
+  line-height: 1.8;
+  font-weight: 500;
+  font-size: 17px;
 }
 
 /* ===================================
@@ -83,6 +86,8 @@ button {
   cursor: pointer;
   border: none;
   outline: none;
+  font-size: 16px;
+  font-weight: 600;
 }
 
 /* ===================================
@@ -343,11 +348,11 @@ select {
 
 .error-card__message {
   font-family: 'Cairo', sans-serif;
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 600;
   color: var(--red);
   margin-bottom: 12px;
-  line-height: 1.6;
+  line-height: 1.8;
 }
 
 .error-card__retry {
@@ -397,10 +402,39 @@ select {
 
 .empty-state__description {
   font-family: 'IBM Plex Arabic', sans-serif;
-  font-size: 15px;
+  font-size: 17px;
+  font-weight: 500;
   color: var(--gray-3);
   max-width: 360px;
-  line-height: 1.7;
+  line-height: 1.9;
+}
+
+/* ===================================
+   Global readability minimums
+=================================== */
+/* Prevent any text from being invisible-small */
+.sim-instruction, .sim-sub {
+  font-size: 18px !important;
+  color: #FFFFFF !important;
+  line-height: 1.6 !important;
+}
+
+.sim-step-label {
+  font-size: 16px !important;
+  color: #FFD700 !important;
+  font-weight: 700 !important;
+}
+
+.sim-price {
+  font-size: 18px !important;
+  color: #00ff88 !important;
+  font-weight: 700 !important;
+}
+
+.sim-product-name {
+  font-size: 18px !important;
+  color: #FFFFFF !important;
+  font-weight: 600 !important;
 }
 
 /* ===================================
@@ -433,7 +467,7 @@ button:active {
 =================================== */
 @media (max-width: 768px) {
   html {
-    font-size: 15px;
+    font-size: 16px;
   }
 
   .container {
@@ -464,7 +498,7 @@ button:active {
 =================================== */
 @media (max-width: 480px) {
   html {
-    font-size: 14px;
+    font-size: 15px;
   }
 
   .container {

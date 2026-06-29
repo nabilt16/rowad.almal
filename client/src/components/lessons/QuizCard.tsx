@@ -1,4 +1,5 @@
 import { useState, useMemo, type CSSProperties } from 'react';
+import { highlightNumbers } from '../../utils/highlightNumbers';
 import { playCorrect, playWrong, playClick } from '../../utils/audio';
 import { confettiBurst, flyStars } from '../../utils/confetti';
 
@@ -11,6 +12,7 @@ interface QuizCardProps {
   question: string;
   choices: QuizChoice[];
   onAnswer: (choiceIndex: number, isCorrect: boolean) => void;
+  highlight?: boolean;
 }
 
 const cardStyle: CSSProperties = {
@@ -84,7 +86,8 @@ const feedbackOkStyle: CSSProperties = {
   marginTop: '14px',
   padding: '16px 20px',
   borderRadius: 'var(--r)',
-  fontSize: '16px',
+  fontSize: '18px',
+  fontWeight: 600,
   lineHeight: 1.9,
   background: 'rgba(46,125,50,0.15)',
   borderRight: '4px solid var(--green)',
@@ -132,7 +135,7 @@ function getChoiceStyle(state: ChoiceState): CSSProperties {
   }
 }
 
-export default function QuizCard({ question, choices, onAnswer }: QuizCardProps) {
+export default function QuizCard({ question, choices, onAnswer, highlight = false }: QuizCardProps) {
   const [locked, setLocked] = useState(false);       // true only after correct answer
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [isCorrect, setIsCorrect] = useState(false);
@@ -191,7 +194,7 @@ export default function QuizCard({ question, choices, onAnswer }: QuizCardProps)
         اختبر معلوماتك
       </h4>
 
-      <p style={questionStyle}>{question}</p>
+      <p style={questionStyle}>{highlight ? highlightNumbers(question) : question}</p>
 
       <div style={choicesContainerStyle}>
         {shuffled.map((choice, i) => (
@@ -209,7 +212,7 @@ export default function QuizCard({ question, choices, onAnswer }: QuizCardProps)
                   ? '\u2718'
                   : CHOICE_LABELS[i] || String(i + 1)}
             </span>
-            {choice.text}
+            {highlight ? highlightNumbers(choice.text) : choice.text}
           </button>
         ))}
       </div>

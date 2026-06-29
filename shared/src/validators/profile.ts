@@ -3,11 +3,11 @@ import { z } from 'zod';
 export const onboardingSchema = z.object({
   studentName: z.string().min(2, 'الاسم مطلوب'),
   gender: z.enum(['male', 'female']),
-  whoWorks: z.enum(['dad', 'mom', 'both']),
-  dadName: z.string().min(1, 'اسم الأب مطلوب'),
-  dadJob: z.string().min(1, 'مهنة الأب مطلوبة'),
-  momName: z.string().min(1, 'اسم الأم مطلوب'),
-  momJob: z.string().min(1, 'مهنة الأم مطلوبة'),
+  whoWorks: z.enum(['dad', 'mom', 'both']).optional(),
+  dadName: z.string().optional(),
+  dadJob: z.string().optional(),
+  momName: z.string().optional(),
+  momJob: z.string().optional(),
 });
 
 export const profileUpdateSchema = z.object({
