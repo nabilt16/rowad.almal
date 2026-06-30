@@ -231,7 +231,7 @@ export default function StoryCard({ title, text, onRead, highlight = false }: St
     setLoading(true);
     try {
       const spokenText = prepareStoryForAudio(text);
-      const response = await fetch('http://localhost:3001/api/tts', {
+      const response = await fetch('/api/tts', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text: spokenText }),
